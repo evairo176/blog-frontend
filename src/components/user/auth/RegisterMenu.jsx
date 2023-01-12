@@ -1,14 +1,19 @@
 import React, { Fragment } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-const formSchema = Yup.object({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
-  email: Yup.string().required("Email is required"),
-  password: Yup.string().required("Password is required"),
-});
+import { useDispatch, useSelector } from "react-redux";
+import { registerUserAction } from "../../../redux/slices/users/usersSlices";
 
 function RegisterMenu() {
+  const formSchema = Yup.object({
+    firstName: Yup.string().required("First Name is required"),
+    lastName: Yup.string().required("Last Name is required"),
+    email: Yup.string().required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
+
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -17,7 +22,8 @@ function RegisterMenu() {
       password: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      dispatch(registerUserAction(values));
+      // console.log(values);
     },
     validationSchema: formSchema,
   });
