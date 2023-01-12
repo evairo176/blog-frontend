@@ -19,6 +19,7 @@ function RegisterMenu() {
     onSubmit: (values) => {
       console.log(values);
     },
+    validationSchema: formSchema,
   });
   //   console.log(formik);
   return (
@@ -36,7 +37,7 @@ function RegisterMenu() {
                   onBlur={formik.handleBlur("firstName")}
                   type="text"
                   className={`form-control form-layanan ${
-                    formik.touched.firstName ? "is-invalid" : ""
+                    formik.errors.firstName && "is-invalid"
                   }`}
                 />
                 {formik.touched.firstName && (
@@ -55,8 +56,18 @@ function RegisterMenu() {
                   onChange={formik.handleChange("lastName")}
                   onBlur={formik.handleBlur("lastName")}
                   type="text"
-                  className="form-control"
+                  className={`form-control form-layanan ${
+                    formik.errors.lastName && "is-invalid"
+                  }`}
                 />
+                {formik.touched.lastName && (
+                  <div
+                    id="validationServer03Feedback"
+                    className="invalid-feedback"
+                  >
+                    {formik.errors.lastName}
+                  </div>
+                )}
               </div>
               <div className="form-group mb-3">
                 <label htmlFor="email">Email</label>
@@ -65,8 +76,18 @@ function RegisterMenu() {
                   onChange={formik.handleChange("email")}
                   onBlur={formik.handleBlur("email")}
                   type="email"
-                  className="form-control"
+                  className={`form-control form-layanan ${
+                    formik.errors.email && "is-invalid"
+                  }`}
                 />
+                {formik.touched.email && (
+                  <div
+                    id="validationServer03Feedback"
+                    className="invalid-feedback"
+                  >
+                    {formik.errors.email}
+                  </div>
+                )}
               </div>
               <div className="form-group mb-3">
                 <label htmlFor="password">Password</label>
@@ -75,8 +96,18 @@ function RegisterMenu() {
                   onChange={formik.handleChange("password")}
                   onBlur={formik.handleBlur("password")}
                   type="password"
-                  className="form-control"
+                  className={`form-control form-layanan ${
+                    formik.errors.password && "is-invalid"
+                  }`}
                 />
+                {formik.touched.password && (
+                  <div
+                    id="validationServer03Feedback"
+                    className="invalid-feedback"
+                  >
+                    {formik.errors.password}
+                  </div>
+                )}
               </div>
               <div className="form-group mt-3">
                 <button type="submit" className="btn btn-primary">
