@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUserAction } from "../../../redux/slices/users/usersSlices";
+import { ToastContainer, toast } from "react-toastify";
 
 function RegisterMenu() {
   const formSchema = Yup.object({
@@ -23,6 +24,7 @@ function RegisterMenu() {
     },
     onSubmit: (values) => {
       dispatch(registerUserAction(values));
+
       // console.log(values);
     },
     validationSchema: formSchema,
@@ -32,9 +34,27 @@ function RegisterMenu() {
   // select state from store with useSelector
   const storeData = useSelector((store) => store.users);
   const { loading, appErr, serverErr, registered } = storeData;
+
+  const showErrorToast = () => {
+    if (appErr || serverErr) {
+      toast.error(`${appErr} & ${serverErr}`, {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
+  showErrorToast();
+
   return (
     <Fragment>
       <div className="center">
+        <ToastContainer />
         <div className="card ">
           <div className="card-header">Register</div>
           <div className="card-body">
