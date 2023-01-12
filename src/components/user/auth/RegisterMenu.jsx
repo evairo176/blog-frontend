@@ -28,6 +28,10 @@ function RegisterMenu() {
     validationSchema: formSchema,
   });
   //   console.log(formik);
+
+  // select state from store with useSelector
+  const storeData = useSelector((store) => store.users);
+  const { loading, appErr, serverErr, registered } = storeData;
   return (
     <Fragment>
       <div className="center">
@@ -116,9 +120,15 @@ function RegisterMenu() {
                 )}
               </div>
               <div className="form-group mt-3">
-                <button type="submit" className="btn btn-primary">
-                  Register
-                </button>
+                {loading ? (
+                  <button disabled className="btn btn-primary">
+                    Loading...
+                  </button>
+                ) : (
+                  <button type="submit" className="btn btn-primary">
+                    Register
+                  </button>
+                )}
               </div>
             </form>
           </div>
