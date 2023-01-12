@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import HomeMenu from "../components/home/HomeMenu";
+import HomeMenu from "../../components/home/HomeMenu";
 
 function HomePage() {
   return (

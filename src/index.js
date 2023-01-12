@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 // import "./index.css";
 // import "./styles/tailwind.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/css/custom.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
