@@ -1,18 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUserAction } from "../../../redux/slices/users/usersSlices";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+const formSchema = Yup.object({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  email: Yup.string().required("Email is required"),
+  password: Yup.string().required("Password is required"),
+});
 
 function RegisterMenu() {
-  const formSchema = Yup.object({
-    firstName: Yup.string().required("First Name is required"),
-    lastName: Yup.string().required("Last Name is required"),
-    email: Yup.string().required("Email is required"),
-    password: Yup.string().required("Password is required"),
-  });
-
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -29,27 +28,21 @@ function RegisterMenu() {
     },
     validationSchema: formSchema,
   });
-  //   console.log(formik);
-
-  // select state from store with useSelector state
+  // select state from store with useSelector
   const storeData = useSelector((store) => store.users);
   const { loading, appErr, serverErr, registered } = storeData;
+
+  const notify = (e) => toast.error(e);
+
+  useEffect(() => {
+    if (serverErr || appErr) {
+      notify(serverErr + " " + appErr);
+    }
+  }, [appErr, serverErr]);
 
   return (
     <Fragment>
       <div className="center">
-        {appErr || serverErr
-          ? toast.error(`${serverErr} ${appErr}`, {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            })
-          : ""}
         <ToastContainer />
         <div className="card ">
           <div className="card-header">Register</div>
