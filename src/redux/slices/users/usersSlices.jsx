@@ -88,6 +88,24 @@ const userSlices = createSlice({
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
     });
+
+    // login
+    builder.addCase(loginUserAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(loginUserAction.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userAuth = action.payload;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(loginUserAction.rejected, (state, action) => {
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
+    });
   },
 });
 
