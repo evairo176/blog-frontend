@@ -23,7 +23,7 @@ function LoginMenu() {
       <div className="center">
         <ToastContainer />
         <div className="card ">
-          <div className="card-header">Register</div>
+          <div className="card-header">Login</div>
           <div className="card-body">
             <form onSubmit={formik.handleSubmit} action="">
               <div className="form-group mb-3">
@@ -68,7 +68,7 @@ function LoginMenu() {
               </div>
               <div className="form-group mt-3">
                 <button type="submit" className="btn btn-primary">
-                  Register
+                  Login
                 </button>
                 {/* {loading ? (
                   <button disabled className="btn btn-primary">
