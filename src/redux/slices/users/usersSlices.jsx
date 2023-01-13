@@ -44,7 +44,18 @@ export const loginUserAction = createAsyncThunk(
           "Content-Type": "application/json",
         },
       };
-    } catch (error) {}
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/users/register`,
+        value,
+        config
+      );
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
   }
 );
 
