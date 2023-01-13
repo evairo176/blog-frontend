@@ -1,51 +1,23 @@
-import React, { Fragment, useEffect } from "react";
 import { useFormik } from "formik";
+import React, { Fragment } from "react";
+import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-import { registerUserAction } from "../../../redux/slices/users/usersSlices";
-import { toast, ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+
 const formSchema = Yup.object({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
   email: Yup.string().required("Email is required"),
   password: Yup.string().required("Password is required"),
 });
-
-function RegisterMenu() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
+function LoginMenu() {
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
       email: "",
       password: "",
     },
     onSubmit: (values) => {
-      dispatch(registerUserAction(values));
-
       // console.log(values);
     },
     validationSchema: formSchema,
   });
-  // select state from store with useSelector
-  const storeData = useSelector((store) => store.users);
-  const { loading, appErr, serverErr, registered } = storeData;
-
-  const notify = (e) => toast.error(e);
-
-  useEffect(() => {
-    if (serverErr || appErr) {
-      notify(serverErr + " " + appErr);
-    }
-  }, [appErr, serverErr]);
-
-  if (registered) {
-    navigate("/profile");
-  }
-
   return (
     <Fragment>
       <div className="center">
@@ -54,46 +26,6 @@ function RegisterMenu() {
           <div className="card-header">Register</div>
           <div className="card-body">
             <form onSubmit={formik.handleSubmit} action="">
-              <div className="form-group mb-3">
-                <label htmlFor="firstName">Nama Depan</label>
-                <input
-                  value={formik.values.firstName}
-                  onChange={formik.handleChange("firstName")}
-                  onBlur={formik.handleBlur("firstName")}
-                  type="text"
-                  className={`form-control form-layanan ${
-                    formik.errors.firstName && "is-invalid"
-                  }`}
-                />
-                {formik.touched.firstName && (
-                  <div
-                    id="validationServer03Feedback"
-                    className="invalid-feedback"
-                  >
-                    {formik.errors.firstName}
-                  </div>
-                )}
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="lastName">Nama Belakang</label>
-                <input
-                  value={formik.values.lastName}
-                  onChange={formik.handleChange("lastName")}
-                  onBlur={formik.handleBlur("lastName")}
-                  type="text"
-                  className={`form-control form-layanan ${
-                    formik.errors.lastName && "is-invalid"
-                  }`}
-                />
-                {formik.touched.lastName && (
-                  <div
-                    id="validationServer03Feedback"
-                    className="invalid-feedback"
-                  >
-                    {formik.errors.lastName}
-                  </div>
-                )}
-              </div>
               <div className="form-group mb-3">
                 <label htmlFor="email">Email</label>
                 <input
@@ -135,7 +67,10 @@ function RegisterMenu() {
                 )}
               </div>
               <div className="form-group mt-3">
-                {loading ? (
+                <button type="submit" className="btn btn-primary">
+                  Register
+                </button>
+                {/* {loading ? (
                   <button disabled className="btn btn-primary">
                     Loading...
                   </button>
@@ -143,7 +78,7 @@ function RegisterMenu() {
                   <button type="submit" className="btn btn-primary">
                     Register
                   </button>
-                )}
+                )} */}
               </div>
             </form>
           </div>
@@ -153,4 +88,4 @@ function RegisterMenu() {
   );
 }
 
-export default RegisterMenu;
+export default LoginMenu;
