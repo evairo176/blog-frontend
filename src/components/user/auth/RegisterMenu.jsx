@@ -31,29 +31,25 @@ function RegisterMenu() {
   });
   //   console.log(formik);
 
-  // select state from store with useSelector
+  // select state from store with useSelector state
   const storeData = useSelector((store) => store.users);
   const { loading, appErr, serverErr, registered } = storeData;
-
-  const showErrorToast = () => {
-    if (appErr || serverErr) {
-      toast.error(`${appErr} & ${serverErr}`, {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-  };
-  showErrorToast();
 
   return (
     <Fragment>
       <div className="center">
+        {appErr || serverErr
+          ? toast.error(`${serverErr} ${appErr}`, {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            })
+          : ""}
         <ToastContainer />
         <div className="card ">
           <div className="card-header">Register</div>
