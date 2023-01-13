@@ -31,6 +31,24 @@ export const registerUserAction = createAsyncThunk(
 );
 
 // ================================================================
+// register user action
+// ================================================================
+
+export const loginUserAction = createAsyncThunk(
+  "users/login",
+  async (value, { rejectWithValue, getState, dispatch }) => {
+    try {
+      // http call
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+    } catch (error) {}
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 
