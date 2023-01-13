@@ -45,11 +45,11 @@ export const loginUserAction = createAsyncThunk(
         },
       };
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API_URL}/users/register`,
+        `${process.env.REACT_APP_API_URL}/users/login`,
         value,
         config
       );
-      localStorage.setItem("userInfo", JSON.stringify(value));
+      localStorage.setItem("userInfo", JSON.stringify(data));
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -60,6 +60,10 @@ export const loginUserAction = createAsyncThunk(
   }
 );
 
+const userLoginFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
+
 // ================================================================
 // slices
 // ================================================================
@@ -67,7 +71,7 @@ export const loginUserAction = createAsyncThunk(
 const userSlices = createSlice({
   name: "users",
   initialState: {
-    userAuth: "login",
+    userAuth: userLoginFromStorage,
   },
   extraReducers: (builder) => {
     // register

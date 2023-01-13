@@ -1,23 +1,45 @@
 import { useFormik } from "formik";
-import React, { Fragment } from "react";
-import { ToastContainer } from "react-toastify";
+import React, { Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import * as Yup from "yup";
+import { loginUserAction } from "../../../redux/slices/users/usersSlices";
 
 const formSchema = Yup.object({
   email: Yup.string().required("Email is required"),
   password: Yup.string().required("Password is required"),
 });
 function LoginMenu() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: (values) => {
-      // console.log(values);
+      dispatch(loginUserAction(values));
+      console.log(values);
     },
     validationSchema: formSchema,
   });
+
+  // select state with useSelector
+  const storeData = useSelector((store) => store.users);
+  const { userAuth, loading, serverErr, appErr } = storeData;
+
+  const notify = (e) => toast.error(e);
+
+  useEffect(() => {
+    if (serverErr || appErr) {
+      notify(serverErr + " " + appErr);
+    }
+  }, [appErr, serverErr]);
+  if (userAuth) {
+    navigate("/profile");
+  }
   return (
     <Fragment>
       <div className="center">
@@ -67,18 +89,15 @@ function LoginMenu() {
                 )}
               </div>
               <div className="form-group mt-3">
-                <button type="submit" className="btn btn-primary">
-                  Login
-                </button>
-                {/* {loading ? (
+                {loading ? (
                   <button disabled className="btn btn-primary">
                     Loading...
                   </button>
                 ) : (
                   <button type="submit" className="btn btn-primary">
-                    Register
+                    Login
                   </button>
-                )} */}
+                )}
               </div>
             </form>
           </div>
