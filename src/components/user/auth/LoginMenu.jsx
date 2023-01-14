@@ -17,7 +17,7 @@ function LoginMenu() {
   // select state with useSelector
   const storeData = useSelector((store) => store.users);
   const { userAuth, loading, serverErr, appErr } = storeData;
-  const auth = userAuth ? userAuth : null;
+  const auth = userAuth ? userAuth : "";
 
   useEffect(() => {
     if (serverErr || appErr) {

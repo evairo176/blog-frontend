@@ -1,8 +1,11 @@
 import React, { Fragment } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutUserAction } from "../../../redux/slices/users/usersSlices";
 
 function Admin({ isLogin }) {
+  const dispatch = useDispatch();
   const navigation_left = [
     { name: "Home", path: "/", current: true },
     { name: "Create", path: "/create-post", current: false },
@@ -63,6 +66,13 @@ function Admin({ isLogin }) {
                       );
                     })
                   : ""}
+                <div
+                  style={{ fontSize: "13px" }}
+                  onClick={() => dispatch(logoutUserAction())}
+                  className="dropdown-item"
+                >
+                  Logout
+                </div>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

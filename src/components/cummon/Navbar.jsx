@@ -9,9 +9,11 @@ function Navbar() {
   const { userAuth } = storeData;
   const isAdmin = userAuth?.isAdmin ? userAuth?.isAdmin : null;
 
+  // console.log(isAdmin);
+
   return (
     <Fragment>
-      {!userAuth ? <Public /> : userAuth ? <Private /> : isAdmin && <Admin />}
+      {isAdmin ? <Admin /> : userAuth ? <Private /> : <Public />}
     </Fragment>
   );
 }
