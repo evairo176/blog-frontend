@@ -31,7 +31,7 @@ export const registerUserAction = createAsyncThunk(
 );
 
 // ================================================================
-// register user action
+// login user action
 // ================================================================
 
 export const loginUserAction = createAsyncThunk(
@@ -63,6 +63,23 @@ export const loginUserAction = createAsyncThunk(
 const userLoginFromStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
   : null;
+
+// ================================================================
+// logout user action
+// ================================================================
+export const logoutUserAction = createAsyncThunk(
+  "users/logout",
+  async (value, { rejectWithValue, getState, dispatch }) => {
+    try {
+      localStorage.removeItem("userInfo");
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
 
 // ================================================================
 // slices
@@ -109,6 +126,19 @@ const userSlices = createSlice({
       state.loading = false;
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
+    });
+
+    //logout
+    builder.addCase(logoutUserAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(loginUserAction.fulfilled, (state, action) => {
+      state.loading = false;
+      state.userAuth = undefined;
+      state.appErr = undefined;
+      state.serverErr = undefined;
     });
   },
 });

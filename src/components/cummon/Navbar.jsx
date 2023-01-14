@@ -7,7 +7,7 @@ import Public from "./navbar/Public";
 function Navbar() {
   const storeData = useSelector((store) => store.users);
   const { userAuth } = storeData;
-  const isAdmin = userAuth.isAdmin;
+  const isAdmin = userAuth?.isAdmin ? userAuth?.isAdmin : null;
 
   return (
     <Fragment>
