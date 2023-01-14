@@ -1,7 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Public from "./navbar/Public";
 
 function Navbar() {
-  return <div>Navbar</div>;
+  return (
+    <Fragment>
+      <Public />
+    </Fragment>
+  );
 }
 
 export default Navbar;
