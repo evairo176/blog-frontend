@@ -1,0 +1,6 @@
+/* .dropdown-toggle::after {
+  display: none;
+} */
+.costum-profile-menu.nav-item.dropdown .dropdown-toggle::after {
+  display: none;
+}

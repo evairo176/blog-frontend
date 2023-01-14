@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import React, { Fragment } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Public() {
