@@ -44,7 +44,7 @@ function Admin({ isLogin }) {
             </Nav>
             <Nav>
               <NavDropdown
-                className="costum-profile-menu"
+                className="costum-profile-menu dropleft"
                 title={
                   <img
                     src="https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png"
@@ -63,6 +63,7 @@ function Admin({ isLogin }) {
                             key={key}
                             className={`dropdown-item`}
                             to={`${row.path}`}
+                            style={{ fontSize: "13px" }}
                           >
                             {row.name}
                           </Link>
