@@ -25,17 +25,15 @@ function Public() {
               {navigation_left?.length > 0
                 ? navigation_left?.map((row, key) => {
                     return (
-                      <>
-                        <Link
-                          key={key}
-                          className={`nav-link ${className(
-                            row.current ? "text-danger" : ""
-                          )}`}
-                          to={`${row.path}`}
-                        >
-                          {row.name}
-                        </Link>
-                      </>
+                      <Link
+                        key={key}
+                        className={`nav-link ${className(
+                          row.current ? "text-danger" : ""
+                        )}`}
+                        to={`${row.path}`}
+                      >
+                        {row.name}
+                      </Link>
                     );
                   })
                 : ""}

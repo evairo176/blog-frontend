@@ -31,15 +31,9 @@ function Private({ isLogin }) {
               {navigation_left?.length > 0
                 ? navigation_left?.map((row, key) => {
                     return (
-                      <>
-                        <Link
-                          key={key}
-                          className={`nav-link`}
-                          to={`${row.path}`}
-                        >
-                          {row.name}
-                        </Link>
-                      </>
+                      <Link key={key} className={`nav-link`} to={`${row.path}`}>
+                        {row.name}
+                      </Link>
                     );
                   })
                 : ""}
@@ -60,15 +54,13 @@ function Private({ isLogin }) {
                 {navigation_right?.length > 0
                   ? navigation_right?.map((row, key) => {
                       return (
-                        <>
-                          <Link
-                            key={key}
-                            className={`dropdown-item`}
-                            to={`${row.path}`}
-                          >
-                            {row.name}
-                          </Link>
-                        </>
+                        <Link
+                          key={key}
+                          className={`dropdown-item`}
+                          to={`${row.path}`}
+                        >
+                          {row.name}
+                        </Link>
                       );
                     })
                   : ""}

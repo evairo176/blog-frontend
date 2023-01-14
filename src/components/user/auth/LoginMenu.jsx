@@ -14,6 +14,23 @@ function LoginMenu() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // select state with useSelector
+  const storeData = useSelector((store) => store.users);
+  const { userAuth, loading, serverErr, appErr } = storeData;
+
+  useEffect(() => {
+    if (serverErr || appErr) {
+      notify(serverErr + " " + appErr);
+    }
+  }, [appErr, serverErr]);
+
+  useEffect(() => {
+    if (userAuth) {
+      navigate("/profile");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -26,20 +43,8 @@ function LoginMenu() {
     validationSchema: formSchema,
   });
 
-  // select state with useSelector
-  const storeData = useSelector((store) => store.users);
-  const { userAuth, loading, serverErr, appErr } = storeData;
-
   const notify = (e) => toast.error(e);
 
-  useEffect(() => {
-    if (serverErr || appErr) {
-      notify(serverErr + " " + appErr);
-    }
-  }, [appErr, serverErr]);
-  if (userAuth) {
-    navigate("/profile");
-  }
   return (
     <Fragment>
       <div className="center">
