@@ -3,6 +3,15 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Public() {
+  const navigation_left = [
+    { name: "Create", path: "/create-post", current: false },
+    { name: "Posts", path: "/posts", current: false },
+  ];
+
+  const className = (...classes) => {
+    return classes.filter(Boolean).join(" ");
+  };
+
   return (
     <Fragment>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -13,22 +22,23 @@ function Public() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Link className="nav-link" to="/login">
-                Create Post
-              </Link>
-              {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown> */}
+              {navigation_left?.length > 0
+                ? navigation_left?.map((row, key) => {
+                    return (
+                      <>
+                        <Link
+                          key={key}
+                          className={`nav-link ${className(
+                            row.current ? "text-danger" : ""
+                          )}`}
+                          to={`${row.path}`}
+                        >
+                          {row.name}
+                        </Link>
+                      </>
+                    );
+                  })
+                : ""}
             </Nav>
             <Nav>
               <Link className="nav-link" to="/login">
