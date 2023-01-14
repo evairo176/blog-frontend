@@ -6,13 +6,12 @@ import Public from "./navbar/Public";
 
 function Navbar() {
   const storeData = useSelector((store) => store.users);
-  console.log(storeData);
+  const { userAuth } = storeData;
+  const isAdmin = userAuth.isAdmin;
 
   return (
     <Fragment>
-      {/* <Public /> */}
-      {/* <Private /> */}
-      <Admin />
+      {!userAuth ? <Public /> : userAuth ? <Private /> : isAdmin && <Admin />}
     </Fragment>
   );
 }
