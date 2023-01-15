@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { loginUserAction } from "../../../redux/slices/users/usersSlices";
 
@@ -32,21 +32,18 @@ function LoginMenu() {
     },
     onSubmit: (values) => {
       dispatch(loginUserAction(values));
-      console.log(values);
+      // console.log(values);
     },
     validationSchema: formSchema,
   });
 
   const notify = (e) => toast.error(e);
-
   if (auth) {
     navigate("/profile");
   }
-
   return (
     <Fragment>
       <div className="center">
-        <ToastContainer />
         <div className="card ">
           <div className="card-header">Login</div>
           <div className="card-body">

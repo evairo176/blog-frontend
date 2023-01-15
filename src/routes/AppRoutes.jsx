@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Navbar from "../components/cummon/Navbar";
 import AddNewCategoryPages from "../pages/dashboard/AddNewCategoryPages";
 import ProfilePage from "../pages/dashboard/ProfilePage";
@@ -11,6 +12,7 @@ function AppRoutes() {
   return (
     <Fragment>
       <Navbar />
+      <ToastContainer />
       <Routes>
         <>
           <Route path="/" element={<HomePage />} />

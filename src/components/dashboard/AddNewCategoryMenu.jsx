@@ -1,22 +1,27 @@
 import { useFormik } from "formik";
 import React, { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
+import { createCategoryAction } from "../../redux/slices/category/categorySlices";
 const formSchema = Yup.object({
-  category: Yup.string().required("Category is required"),
+  title: Yup.string().required("Title is required"),
 });
 
 function AddNewCategoryMenu() {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      title: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      //   console.log(values);
+      dispatch(createCategoryAction(values));
     },
     validationSchema: formSchema,
   });
+
+  const storeData = useSelector();
   return (
     <Fragment>
       <div className="center">
@@ -26,23 +31,23 @@ function AddNewCategoryMenu() {
           <div className="card-body">
             <form onSubmit={formik.handleSubmit} action="">
               <div className="form-group mb-3">
-                <label htmlFor="category">Category</label>
+                <label htmlFor="title">Title</label>
                 <input
-                  value={formik.values.category}
-                  onChange={formik.handleChange("category")}
-                  onBlur={formik.handleBlur("category")}
+                  value={formik.values.title}
+                  onChange={formik.handleChange("title")}
+                  onBlur={formik.handleBlur("title")}
                   placeholder="New Category"
-                  type="email"
+                  type="text"
                   className={`form-control form-layanan ${
-                    formik.errors.category && "is-invalid"
+                    formik.errors.title && "is-invalid"
                   }`}
                 />
-                {formik.touched.category && (
+                {formik.touched.title && (
                   <div
                     id="validationServer03Feedback"
                     className="invalid-feedback"
                   >
-                    {formik.errors.category}
+                    {formik.errors.title}
                   </div>
                 )}
               </div>

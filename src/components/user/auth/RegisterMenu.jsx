@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUserAction } from "../../../redux/slices/users/usersSlices";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const formSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
@@ -49,7 +49,6 @@ function RegisterMenu() {
   return (
     <Fragment>
       <div className="center">
-        <ToastContainer />
         <div className="card ">
           <div className="card-header">Register</div>
           <div className="card-body">
