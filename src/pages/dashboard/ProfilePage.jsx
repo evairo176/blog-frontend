@@ -8,6 +8,7 @@ function ProfilePage() {
   const { userAuth } = storeData;
   const auth = userAuth ? userAuth : "";
 
+  // handle redirect
   if (!auth) {
     return <Navigate to="/login" />;
   }
