@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // ================================================================
 // create category action
@@ -8,14 +9,23 @@ import axios from "axios";
 export const createCategoryAction = createAsyncThunk(
   "category/create",
   async (value, { rejectWithValue, getState, dispatch }) => {
-    console.log(getState());
+    const user = getState()?.users;
+    const { userAuth } = user;
+    const token = userAuth?.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_API_URL}/category`,
         {
           title: value?.title,
-        }
+        },
+        config
       );
+      return data;
     } catch (error) {
       if (!error?.response) {
         throw error;
@@ -36,20 +46,17 @@ const categorySlices = createSlice({
     // create category
     builder.addCase(createCategoryAction.pending, (state, action) => {
       state.loading = true;
-      state.appErr = undefined;
-      state.serverErr = undefined;
     });
     builder.addCase(createCategoryAction.fulfilled, (state, action) => {
       state.loading = false;
       state.category = action.payload;
-      state.appErr = undefined;
-      state.serverErr = undefined;
+      toast.success(action.payload.message);
+      console.log(action.payload.message);
     });
     builder.addCase(createCategoryAction.rejected, (state, action) => {
       //   console.log(action.payload);
       state.loading = false;
-      state.appErr = action.payload.message;
-      state.serverErr = action.error.message;
+      toast.error(`${action.error.message} ${action.payload.message}`);
     });
   },
 });

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // ================================================================
 // register user action
@@ -113,19 +114,21 @@ const userSlices = createSlice({
     // login
     builder.addCase(loginUserAction.pending, (state, action) => {
       state.loading = true;
-      state.appErr = undefined;
-      state.serverErr = undefined;
+      // state.appErr = undefined;
+      // state.serverErr = undefined;
     });
     builder.addCase(loginUserAction.fulfilled, (state, action) => {
       state.loading = false;
       state.userAuth = action.payload;
-      state.appErr = undefined;
-      state.serverErr = undefined;
+
+      // state.appErr = undefined;
+      // state.serverErr = undefined;
     });
     builder.addCase(loginUserAction.rejected, (state, action) => {
       state.loading = false;
-      state.appErr = action.payload.message;
-      state.serverErr = action.error.message;
+      toast.error(`${action.error.message} ${action.payload.message}`);
+      // state.appErr = action.payload.message;
+      // state.serverErr = action.error.message;
     });
 
     //logout

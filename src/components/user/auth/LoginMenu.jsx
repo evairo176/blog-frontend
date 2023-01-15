@@ -1,8 +1,7 @@
 import { useFormik } from "formik";
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import * as Yup from "yup";
 import { loginUserAction } from "../../../redux/slices/users/usersSlices";
 
@@ -16,14 +15,8 @@ function LoginMenu() {
 
   // select state with useSelector
   const storeData = useSelector((store) => store.users);
-  const { userAuth, loading, serverErr, appErr } = storeData;
+  const { userAuth, loading } = storeData;
   const auth = userAuth ? userAuth : "";
-
-  useEffect(() => {
-    if (serverErr || appErr) {
-      notify(serverErr + " " + appErr);
-    }
-  }, [appErr, serverErr]);
 
   const formik = useFormik({
     initialValues: {
@@ -37,7 +30,6 @@ function LoginMenu() {
     validationSchema: formSchema,
   });
 
-  const notify = (e) => toast.error(e);
   if (auth) {
     navigate("/profile");
   }

@@ -1,7 +1,6 @@
 import { useFormik } from "formik";
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
 import * as Yup from "yup";
 import { createCategoryAction } from "../../redux/slices/category/categorySlices";
 const formSchema = Yup.object({
@@ -21,11 +20,13 @@ function AddNewCategoryMenu() {
     validationSchema: formSchema,
   });
 
-  const storeData = useSelector();
+  const storeData = useSelector((store) => store?.category);
+  const { loading } = storeData;
+
+  //   console.log(storeData);
   return (
     <Fragment>
       <div className="center">
-        <ToastContainer />
         <div className="card ">
           <div className="card-header">Add New Category</div>
           <div className="card-body">
@@ -52,18 +53,15 @@ function AddNewCategoryMenu() {
                 )}
               </div>
               <div className="form-group mt-3">
-                <button type="submit" className="btn btn-primary">
-                  Save
-                </button>
-                {/* {loading ? (
+                {loading ? (
                   <button disabled className="btn btn-primary">
                     Loading...
                   </button>
                 ) : (
                   <button type="submit" className="btn btn-primary">
-                    Login
+                    Save
                   </button>
-                )} */}
+                )}
               </div>
             </form>
           </div>
