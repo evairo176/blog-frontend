@@ -23,7 +23,8 @@ function AddNewCategoryMenu() {
   const storeData = useSelector((store) => store?.category);
   const { loading } = storeData;
 
-  //   console.log(storeData);
+  // console.log(storeData);
+  // abc
   return (
     <Fragment>
       <div className="center">
