@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { createCategoryAction } from "../../redux/slices/category/categorySlices";
+import LoadingComponent from "../../utils/LoadingComponent";
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
 });
@@ -56,7 +57,7 @@ function AddNewCategoryMenu() {
               <div className="form-group mt-3">
                 {loading ? (
                   <button disabled className="btn btn-primary">
-                    Loading...
+                    <LoadingComponent />
                   </button>
                 ) : (
                   <button type="submit" className="btn btn-primary">

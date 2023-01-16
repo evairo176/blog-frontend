@@ -1,7 +1,14 @@
 import React from "react";
+import Moment from "react-moment";
 
-function dateFormatter() {
-  return <></>;
+function DateFormatter(props) {
+  return (
+    <>
+      <Moment format="D MMM YYYY" withTitle>
+        {props.date}
+      </Moment>
+    </>
+  );
 }
 
-export default dateFormatter;
+export default DateFormatter;

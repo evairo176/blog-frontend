@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
+import DateFormatter from "../../utils/DateFormatter";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 function CategoryListMenu() {
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ function CategoryListMenu() {
                 {loading ? (
                   <tr>
                     <td className="text-center" colSpan="4">
-                      Loading...
+                      <LoadingComponent />
                     </td>
                   </tr>
                 ) : appErr || serverErr ? (
@@ -62,7 +64,9 @@ function CategoryListMenu() {
                           </div>
                         </td>
                         <td>{row.title}</td>
-                        <td>{row.createdAt}</td>
+                        <td>
+                          <DateFormatter date={row.createdAt} />
+                        </td>
                         <td>{row.title}</td>
                       </tr>
                     );

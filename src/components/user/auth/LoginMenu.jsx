@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { loginUserAction } from "../../../redux/slices/users/usersSlices";
+import LoadingComponent from "../../../utils/LoadingComponent";
 
 const formSchema = Yup.object({
   email: Yup.string().required("Email is required"),
@@ -83,7 +84,7 @@ function LoginMenu() {
               <div className="form-group mt-3">
                 {loading ? (
                   <button disabled className="btn btn-primary">
-                    Loading...
+                    <LoadingComponent />
                   </button>
                 ) : (
                   <button type="submit" className="btn btn-primary">
