@@ -81,11 +81,33 @@ const categorySlices = createSlice({
       state.loading = false;
       state.category = action.payload;
       toast.success(action.payload.message);
-      console.log(action.payload.message);
+      // console.log(action.payload.message);
     });
     builder.addCase(createCategoryAction.rejected, (state, action) => {
       //   console.log(action.payload);
       state.loading = false;
+      toast.error(`${action.error.message} ${action.payload.message}`);
+    });
+
+    // fetch all category
+    builder.addCase(fetchAllCategoryAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(fetchAllCategoryAction.fulfilled, (state, action) => {
+      state.loading = false;
+      state.categoryList = action.payload.categories;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      toast.success(action.payload.message);
+      // console.log(action.payload.message);
+    });
+    builder.addCase(fetchAllCategoryAction.rejected, (state, action) => {
+      //   console.log(action.payload);
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
       toast.error(`${action.error.message} ${action.payload.message}`);
     });
   },
