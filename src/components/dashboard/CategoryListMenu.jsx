@@ -45,7 +45,21 @@ function CategoryListMenu() {
                     return (
                       <tr key={key}>
                         <td>
-                          {row.user.firstName} {row.user.lastName}
+                          <div className="d-flex align-items-center">
+                            <div className="img-profile">
+                              <img
+                                src={`${row.user.profilePhoto}`}
+                                className="rounded-circle"
+                                alt=""
+                                width="40px"
+                              />
+                            </div>
+                            <div className="profile-name">
+                              {row.user.firstName} {row.user.lastName}
+                              <br />
+                              {row.user.email}
+                            </div>
+                          </div>
                         </td>
                         <td>{row.title}</td>
                         <td>{row.createdAt}</td>
