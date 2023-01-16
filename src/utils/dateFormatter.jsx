@@ -1,7 +1,7 @@
 import React from "react";
 
 function dateFormatter() {
-  return <div>dateFormatter</div>;
+  return <></>;
 }
 
 export default dateFormatter;
