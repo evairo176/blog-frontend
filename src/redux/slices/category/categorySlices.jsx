@@ -70,7 +70,7 @@ export const fetchAllCategoryAction = createAsyncThunk(
 // ================================================================
 
 export const updateCategoryAction = createAsyncThunk(
-  "category/fetch",
+  "category/update",
   async (value, { rejectWithValue, getState, dispatch }) => {
     const user = getState()?.users;
     const { userAuth } = user;
@@ -81,8 +81,39 @@ export const updateCategoryAction = createAsyncThunk(
       },
     };
     try {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/category`,
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API_URL}/category/${value.id}`,
+        value,
+        config
+      );
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
+// delete category action
+// ================================================================
+
+export const deleteCategoryAction = createAsyncThunk(
+  "category/delete",
+  async (value, { rejectWithValue, getState, dispatch }) => {
+    const user = getState()?.users;
+    const { userAuth } = user;
+    const token = userAuth?.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const { data } = await axios.delete(
+        `${process.env.REACT_APP_API_URL}/category/${value.id}`,
         config
       );
       return data;
@@ -134,6 +165,50 @@ const categorySlices = createSlice({
       // console.log(action.payload.message);
     });
     builder.addCase(fetchAllCategoryAction.rejected, (state, action) => {
+      //   console.log(action.payload);
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
+      toast.error(`${action.error.message} ${action.payload.message}`);
+    });
+
+    // update category
+    builder.addCase(updateCategoryAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(updateCategoryAction.fulfilled, (state, action) => {
+      state.loading = false;
+      state.updateCategory = action.payload.updateCategory;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      toast.success(action.payload.message);
+      // console.log(action.payload.message);
+    });
+    builder.addCase(updateCategoryAction.rejected, (state, action) => {
+      //   console.log(action.payload);
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
+      toast.error(`${action.error.message} ${action.payload.message}`);
+    });
+
+    // delete category
+    builder.addCase(deleteCategoryAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(deleteCategoryAction.fulfilled, (state, action) => {
+      state.loading = false;
+      state.deleteCategory = action.payload.deleteCategory;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      toast.success(action.payload.message);
+      // console.log(action.payload.message);
+    });
+    builder.addCase(deleteCategoryAction.rejected, (state, action) => {
       //   console.log(action.payload);
       state.loading = false;
       state.appErr = action.payload.message;
