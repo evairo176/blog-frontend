@@ -66,6 +66,36 @@ export const fetchAllCategoryAction = createAsyncThunk(
 );
 
 // ================================================================
+// update category action
+// ================================================================
+
+export const updateCategoryAction = createAsyncThunk(
+  "category/fetch",
+  async (value, { rejectWithValue, getState, dispatch }) => {
+    const user = getState()?.users;
+    const { userAuth } = user;
+    const token = userAuth?.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/category`,
+        config
+      );
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 
