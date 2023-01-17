@@ -242,21 +242,22 @@ const categorySlices = createSlice({
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
       toast.error(`${action.error.message} ${action.payload.message}`);
+    });
 
     // detail category by id
-    builder.addCase(deleteCategoryAction.pending, (state, action) => {
+    builder.addCase(detailCategoryByIdAction.pending, (state, action) => {
       state.loading = true;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
-    builder.addCase(deleteCategoryAction.fulfilled, (state, action) => {
+    builder.addCase(detailCategoryByIdAction.fulfilled, (state, action) => {
       state.loading = false;
       state.detailCategory = action.payload.detailCategory;
       state.appErr = undefined;
       state.serverErr = undefined;
       // console.log(action.payload.message);
     });
-    builder.addCase(deleteCategoryAction.rejected, (state, action) => {
+    builder.addCase(detailCategoryByIdAction.rejected, (state, action) => {
       //   console.log(action.payload);
       state.loading = false;
       state.appErr = action.payload.message;
