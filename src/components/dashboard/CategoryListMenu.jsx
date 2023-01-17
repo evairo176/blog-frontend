@@ -12,7 +12,7 @@ function CategoryListMenu() {
 
   const storeData = useSelector((store) => store?.category);
   const { categoryList, appErr, serverErr, loading } = storeData;
-  console.log(storeData);
+  // console.log(storeData);
 
   return (
     <Fragment>
