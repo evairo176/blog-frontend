@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
 import DateFormatter from "../../utils/DateFormatter";
 import LoadingComponent from "../../utils/LoadingComponent";
@@ -67,7 +68,14 @@ function CategoryListMenu() {
                         <td>
                           <DateFormatter date={row.createdAt} />
                         </td>
-                        <td>{row.title}</td>
+                        <td>
+                          <Link
+                            to={`/update-category/${row._id}`}
+                            className="btn btn-warning"
+                          >
+                            Edit
+                          </Link>
+                        </td>
                       </tr>
                     );
                   })

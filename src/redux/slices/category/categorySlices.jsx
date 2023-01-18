@@ -143,7 +143,7 @@ export const detailCategoryByIdAction = createAsyncThunk(
     };
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API_URL}/category/${value.id}`,
+        `${process.env.REACT_APP_API_URL}/category/${value}`,
         config
       );
       return data;
