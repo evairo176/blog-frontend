@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { createCategoryAction } from "../../redux/slices/category/categorySlices";
 import LoadingComponent from "../../utils/LoadingComponent";
@@ -10,6 +11,7 @@ const formSchema = Yup.object({
 
 function AddNewCategoryMenu() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -22,8 +24,11 @@ function AddNewCategoryMenu() {
   });
 
   const storeData = useSelector((store) => store?.category);
-  const { loading } = storeData;
+  const { loading, isCreate } = storeData;
 
+  if (isCreate) {
+    navigate("/category-list");
+  }
   // console.log(storeData);
   // abc
   return (

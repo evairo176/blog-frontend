@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 // action to redirect
 // ================================================================
 const resetEditAction = createAction("category/reset");
-const resetDeleteAction = createAction("category/delete");
+const resetDeleteAction = createAction("category/delete-reset");
+const resetCreateAction = createAction("category/create-reset");
 
 // ================================================================
 // create category action
@@ -31,6 +32,7 @@ export const createCategoryAction = createAsyncThunk(
         },
         config
       );
+      dispatch(resetCreateAction());
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -178,10 +180,14 @@ const categorySlices = createSlice({
     builder.addCase(createCategoryAction.pending, (state, action) => {
       state.loading = true;
     });
+    builder.addCase(resetCreateAction, (state, action) => {
+      state.isCreate = true;
+    });
 
     builder.addCase(createCategoryAction.fulfilled, (state, action) => {
       state.loading = false;
       state.category = action.payload;
+      state.isCreate = false;
       toast.success(action.payload.message);
       // console.log(action.payload.message);
     });
