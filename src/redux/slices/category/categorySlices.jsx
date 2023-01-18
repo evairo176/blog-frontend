@@ -244,7 +244,7 @@ const categorySlices = createSlice({
       toast.error(`${action.error.message} ${action.payload.message}`);
     });
 
-    // detail category by id
+    // detail category by id show
     builder.addCase(detailCategoryByIdAction.pending, (state, action) => {
       state.loading = true;
       state.appErr = undefined;
