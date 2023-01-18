@@ -24,6 +24,8 @@ function AppRoutes() {
           <Route path="/login" element={<LoginPage />} />
 
           {/* page after login  */}
+
+          {/* protected route admin  */}
           <Route
             path="/add-category"
             element={
@@ -40,8 +42,6 @@ function AppRoutes() {
               </ProtectedAdminRoute>
             }
           />
-          {/* <Route path="/category-list" element={<CategoryListPage />} /> */}
-          {/* <Route path="/profile" element={<ProfilePage />} /> */}
           <Route
             path="/category-list"
             element={
@@ -50,6 +50,9 @@ function AppRoutes() {
               </ProtectedAdminRoute>
             }
           />
+          {/* protected route admin  */}
+
+          {/* protected login  */}
           <Route
             path="/profile"
             element={
@@ -58,6 +61,7 @@ function AppRoutes() {
               </ProtectedRoute>
             }
           />
+          {/* protected login  */}
         </>
       </Routes>
     </Fragment>
