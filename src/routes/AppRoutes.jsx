@@ -5,6 +5,7 @@ import Navbar from "../components/cummon/Navbar";
 import AddNewCategoryPages from "../pages/dashboard/AddNewCategoryPage";
 import CategoryListPage from "../pages/dashboard/CategoryListPage";
 import ProfilePage from "../pages/dashboard/ProfilePage";
+import UpdateCategoryPage from "../pages/dashboard/UpdateCategoryPage";
 import HomePage from "../pages/home/HomePage";
 import LoginPage from "../pages/user/auth/LoginPage";
 import RegisterPage from "../pages/user/auth/RegisterPage";
@@ -22,6 +23,7 @@ function AppRoutes() {
 
           {/* page after login  */}
           <Route path="/add-category" element={<AddNewCategoryPages />} />
+          <Route path="/update-category/:id" element={<UpdateCategoryPage />} />
           <Route path="/category-list" element={<CategoryListPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </>
