@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Navbar from "../components/cummon/Navbar";
+import ProtectedAdminRoute from "../components/navigation/ProtectedAdminRoute";
+import ProtectedRoute from "../components/navigation/ProtectedRoute";
 import AddNewCategoryPages from "../pages/dashboard/AddNewCategoryPage";
 import CategoryListPage from "../pages/dashboard/CategoryListPage";
 import ProfilePage from "../pages/dashboard/ProfilePage";
@@ -22,10 +24,40 @@ function AppRoutes() {
           <Route path="/login" element={<LoginPage />} />
 
           {/* page after login  */}
-          <Route path="/add-category" element={<AddNewCategoryPages />} />
-          <Route path="/update-category/:id" element={<UpdateCategoryPage />} />
-          <Route path="/category-list" element={<CategoryListPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route
+            path="/add-category"
+            element={
+              <ProtectedAdminRoute>
+                <AddNewCategoryPages />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path="/update-category/:id"
+            element={
+              <ProtectedAdminRoute>
+                <UpdateCategoryPage />
+              </ProtectedAdminRoute>
+            }
+          />
+          {/* <Route path="/category-list" element={<CategoryListPage />} /> */}
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+          <Route
+            path="/category-list"
+            element={
+              <ProtectedAdminRoute>
+                <CategoryListPage />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
         </>
       </Routes>
     </Fragment>
