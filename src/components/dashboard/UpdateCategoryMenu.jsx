@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import {
   detailCategoryByIdAction,
@@ -15,13 +15,14 @@ const formSchema = Yup.object({
 function UpdateCategoryMenu() {
   const params = useParams();
   const { id } = params;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailCategoryByIdAction(id));
   }, [dispatch, id]);
 
   const storeData = useSelector((store) => store?.category);
-  const { loading, detailCategory } = storeData;
+  const { loading, detailCategory, isEdited, isDeleted } = storeData;
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -34,6 +35,10 @@ function UpdateCategoryMenu() {
     },
     validationSchema: formSchema,
   });
+
+  if (isEdited || isDeleted) {
+    navigate("/category-list");
+  }
 
   return (
     <Fragment>

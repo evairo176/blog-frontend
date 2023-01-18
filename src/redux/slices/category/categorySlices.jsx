@@ -1,6 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+
+// ================================================================
+// action to redirect
+// ================================================================
+const resetEditAction = createAction("category/reset");
+const resetDeleteAction = createAction("category/delete");
 
 // ================================================================
 // create category action
@@ -88,6 +94,7 @@ export const updateCategoryAction = createAsyncThunk(
         },
         config
       );
+      dispatch(resetEditAction());
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -118,6 +125,7 @@ export const deleteCategoryAction = createAsyncThunk(
         `${process.env.REACT_APP_API_URL}/category/${value.id}`,
         config
       );
+      dispatch(resetDeleteAction());
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -170,6 +178,7 @@ const categorySlices = createSlice({
     builder.addCase(createCategoryAction.pending, (state, action) => {
       state.loading = true;
     });
+
     builder.addCase(createCategoryAction.fulfilled, (state, action) => {
       state.loading = false;
       state.category = action.payload;
@@ -208,9 +217,14 @@ const categorySlices = createSlice({
       state.appErr = undefined;
       state.serverErr = undefined;
     });
+
+    builder.addCase(resetEditAction, (state, action) => {
+      state.isEdited = true;
+    });
     builder.addCase(updateCategoryAction.fulfilled, (state, action) => {
       state.loading = false;
       state.updateCategory = action.payload.updateCategory;
+      state.isEdited = false;
       state.appErr = undefined;
       state.serverErr = undefined;
       toast.success(action.payload.message);
@@ -225,6 +239,9 @@ const categorySlices = createSlice({
     });
 
     // delete category
+    builder.addCase(resetDeleteAction, (state, action) => {
+      state.isDeleted = true;
+    });
     builder.addCase(deleteCategoryAction.pending, (state, action) => {
       state.loading = true;
       state.appErr = undefined;
@@ -233,6 +250,7 @@ const categorySlices = createSlice({
     builder.addCase(deleteCategoryAction.fulfilled, (state, action) => {
       state.loading = false;
       state.deleteCategory = action.payload.deleteCategory;
+      state.isDeleted = false;
       state.appErr = undefined;
       state.serverErr = undefined;
       toast.success(action.payload.message);
