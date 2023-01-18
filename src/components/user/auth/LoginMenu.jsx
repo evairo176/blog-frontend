@@ -7,7 +7,7 @@ import { loginUserAction } from "../../../redux/slices/users/usersSlices";
 import LoadingComponent from "../../../utils/LoadingComponent";
 
 const formSchema = Yup.object({
-  email: Yup.string().required("Email is required"),
+  email: Yup.string().required("Email is required").email("Invalid email"),
   password: Yup.string().required("Password is required"),
 });
 function LoginMenu() {
@@ -47,7 +47,7 @@ function LoginMenu() {
                   value={formik.values.email}
                   onChange={formik.handleChange("email")}
                   onBlur={formik.handleBlur("email")}
-                  type="email"
+                  type="text"
                   className={`form-control form-layanan ${
                     formik.errors.email && "is-invalid"
                   }`}

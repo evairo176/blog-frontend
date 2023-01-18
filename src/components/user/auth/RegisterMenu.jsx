@@ -9,7 +9,7 @@ import LoadingComponent from "../../../utils/LoadingComponent";
 const formSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
-  email: Yup.string().required("Email is required"),
+  email: Yup.string().required("Email is required").email("Invalid email"),
   password: Yup.string().required("Password is required"),
 });
 
@@ -100,7 +100,7 @@ function RegisterMenu() {
                   value={formik.values.email}
                   onChange={formik.handleChange("email")}
                   onBlur={formik.handleBlur("email")}
-                  type="email"
+                  type="text"
                   className={`form-control form-layanan ${
                     formik.errors.email && "is-invalid"
                   }`}

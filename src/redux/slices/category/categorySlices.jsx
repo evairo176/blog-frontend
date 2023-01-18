@@ -83,7 +83,9 @@ export const updateCategoryAction = createAsyncThunk(
     try {
       const { data } = await axios.put(
         `${process.env.REACT_APP_API_URL}/category/${value.id}`,
-        value,
+        {
+          title: value.title,
+        },
         config
       );
       return data;

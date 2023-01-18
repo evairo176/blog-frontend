@@ -3,7 +3,11 @@ import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import * as Yup from "yup";
-import { detailCategoryByIdAction } from "../../redux/slices/category/categorySlices";
+import {
+  detailCategoryByIdAction,
+  updateCategoryAction,
+  deleteCategoryAction,
+} from "../../redux/slices/category/categorySlices";
 import LoadingComponent from "../../utils/LoadingComponent";
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
@@ -14,12 +18,10 @@ function UpdateCategoryMenu() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailCategoryByIdAction(id));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, id]);
 
   const storeData = useSelector((store) => store?.category);
   const { loading, detailCategory } = storeData;
-  //   console.log(detailCategory);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -28,6 +30,7 @@ function UpdateCategoryMenu() {
     },
     onSubmit: (values) => {
       //   console.log(values);
+      dispatch(updateCategoryAction({ title: values.title, id: id }));
     },
     validationSchema: formSchema,
   });
@@ -43,7 +46,7 @@ function UpdateCategoryMenu() {
                 <div className="form-group mb-3">
                   <label htmlFor="title">Title</label>
                   <input
-                    defaultValue={formik.values.title}
+                    value={formik.values.title}
                     onChange={formik.handleChange("title")}
                     onBlur={formik.handleBlur("title")}
                     placeholder="New Category"
@@ -67,9 +70,20 @@ function UpdateCategoryMenu() {
                       <LoadingComponent />
                     </button>
                   ) : (
-                    <button type="submit" className="btn btn-primary">
-                      Save
-                    </button>
+                    <>
+                      <button type="submit" className="btn btn-primary">
+                        update
+                      </button>
+                      <button
+                        onClick={() =>
+                          dispatch(deleteCategoryAction({ id: id }))
+                        }
+                        type="button"
+                        className="btn btn-danger"
+                      >
+                        delete
+                      </button>
+                    </>
                   )}
                 </div>
               </form>
