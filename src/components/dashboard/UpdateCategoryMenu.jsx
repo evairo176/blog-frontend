@@ -43,7 +43,7 @@ function UpdateCategoryMenu() {
                 <div className="form-group mb-3">
                   <label htmlFor="title">Title</label>
                   <input
-                    value={formik.values.title}
+                    defaultValue={formik.values.title}
                     onChange={formik.handleChange("title")}
                     onBlur={formik.handleBlur("title")}
                     placeholder="New Category"
