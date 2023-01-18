@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 // ================================================================
@@ -74,7 +73,6 @@ export const logoutUserAction = createAsyncThunk(
   async (value, { rejectWithValue, getState, dispatch }) => {
     try {
       localStorage.removeItem("userInfo");
-      // return <Navigate to="/login" />;
     } catch (error) {
       if (!error?.response) {
         throw error;
