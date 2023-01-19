@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import AddNewCategoryMenu from "../components/category/AddNewCategoryMenu";
+import CreateCategoryMenu from "../components/category/CreateCategoryMenu";
 import CategoryListMenu from "../components/category/CategoryListMenu";
 import UpdateCategoryMenu from "../components/category/UpdateCategoryMenu";
 import Navbar from "../components/cummon/Navbar";
 import HomeMenu from "../components/home/HomeMenu";
 import ProtectedAdminRoute from "../components/navigation/ProtectedAdminRoute";
 import ProtectedRoute from "../components/navigation/ProtectedRoute";
+import CreatePostMenu from "../components/posts/CreatePostMenu";
 import LoginMenu from "../components/user/LoginMenu";
 import ProfileMenu from "../components/user/ProfileMenu";
 import RegisterMenu from "../components/user/RegisterMenu";
@@ -30,7 +31,15 @@ function AppRoutes() {
             path="/add-category"
             element={
               <ProtectedAdminRoute>
-                <AddNewCategoryMenu />
+                <CreateCategoryMenu />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path="/create-post"
+            element={
+              <ProtectedAdminRoute>
+                <CreatePostMenu />
               </ProtectedAdminRoute>
             }
           />

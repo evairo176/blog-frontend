@@ -9,7 +9,7 @@ const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
 });
 
-function AddNewCategoryMenu() {
+function CreateCategoryMenu() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -78,4 +78,4 @@ function AddNewCategoryMenu() {
   );
 }
 
-export default AddNewCategoryMenu;
+export default CreateCategoryMenu;
