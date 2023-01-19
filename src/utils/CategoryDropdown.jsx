@@ -39,6 +39,12 @@ function CategoryDropdown(props) {
           id="category"
           options={allCategory}
           value={props?.value?.label}
+          styles={{
+            control: (baseStyles, state) => ({
+              ...baseStyles,
+              borderColor: props?.error ? "red" : "#cbcbcb",
+            }),
+          }}
         />
       )}
       {props?.error && <div className="text-danger">{props?.error}</div>}

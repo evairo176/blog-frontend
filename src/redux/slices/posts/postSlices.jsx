@@ -23,13 +23,14 @@ export const createPostAction = createAsyncThunk(
       },
     };
     try {
+      const formData = new FormData();
+      formData.append("title", value?.title);
+      formData.append("description", value?.description);
+      formData.append("category", value?.category);
+      formData.append("image", value?.image);
       const { data } = await axios.post(
         `${process.env.REACT_APP_API_URL}/posts`,
-        {
-          title: value?.title,
-          description: value?.description,
-          category: value?.category,
-        },
+        formData,
         config
       );
       dispatch(resetCreateAction());

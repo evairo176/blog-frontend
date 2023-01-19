@@ -1,16 +1,65 @@
 import { useFormik } from "formik";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { createPostAction } from "../../redux/slices/posts/postSlices";
 import CategoryDropdown from "../../utils/CategoryDropdown";
 import LoadingComponent from "../../utils/LoadingComponent";
+import { useDropzone } from "react-dropzone";
+import styled from "styled-components";
+
+const StyleDropzone = styled.div`
+  width: 100%;
+  min-height: 80px;
+  text-align: center;
+  border: 1px solid #dfdada;
+  padding: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const thumbsContainer = {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  marginTop: 16,
+};
+
+const thumb = {
+  display: "inline-flex",
+  borderRadius: 2,
+  border: "1px solid #eaeaea",
+  marginBottom: 8,
+  marginRight: 8,
+  width: 100,
+  height: 100,
+  padding: 4,
+  boxSizing: "border-box",
+};
+
+const thumbInner = {
+  display: "flex",
+  minWidth: 0,
+  overflow: "hidden",
+};
+const pj = {
+  margin: 0,
+};
+
+const img = {
+  display: "block",
+  width: "auto",
+  height: "100%",
+};
 
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
   description: Yup.string().required("Description is required"),
   category: Yup.object().required("Category is required"),
+  image: Yup.string().required("Image is required"),
 });
 function CreatePostMenu() {
   const dispatch = useDispatch();
@@ -21,6 +70,7 @@ function CreatePostMenu() {
       title: "",
       description: "",
       category: "",
+      image: "",
     },
     onSubmit: (values) => {
       //   console.log(values);
@@ -28,8 +78,8 @@ function CreatePostMenu() {
         title: values?.title,
         category: values?.category?.label,
         description: values?.description,
+        image: values?.image,
       };
-      //   console.log(data);
       dispatch(createPostAction(data));
     },
     validationSchema: formSchema,
@@ -40,6 +90,53 @@ function CreatePostMenu() {
   if (isCreated) {
     navigate("/post-list");
   }
+  //   console.log(formik.values.image);
+
+  const [files, setFiles] = useState([]);
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/*": [],
+    },
+    onDrop: (acceptedFiles) => {
+      formik.setFieldValue("image", acceptedFiles[0]);
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          })
+        )
+      );
+    },
+    multiple: false,
+    onBlur: () => {
+      formik.handleBlur("image");
+    },
+  });
+
+  const thumbs = files.map((file) => {
+    return (
+      <div style={thumb} key={file.name}>
+        <div style={thumbInner}>
+          <img
+            alt=""
+            src={file.preview}
+            style={img}
+            // Revoke data uri after image is loaded
+            onLoad={() => {
+              URL.revokeObjectURL(file.preview);
+            }}
+          />
+          <br />
+        </div>
+      </div>
+    );
+  });
+
+  useEffect(() => {
+    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
+    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Fragment>
       <div className="center">
@@ -80,7 +177,7 @@ function CreatePostMenu() {
               </div>
               <div className="form-group mb-3">
                 <label htmlFor="description">Description</label>
-                <input
+                <textarea
                   value={formik.values.description}
                   onChange={formik.handleChange("description")}
                   onBlur={formik.handleBlur("description")}
@@ -89,7 +186,7 @@ function CreatePostMenu() {
                   className={`form-control form-layanan ${
                     formik.errors.description && "is-invalid"
                   }`}
-                />
+                ></textarea>
                 {formik.touched.description && (
                   <div
                     id="validationServer03Feedback"
@@ -98,6 +195,75 @@ function CreatePostMenu() {
                     {formik.errors.description}
                   </div>
                 )}
+              </div>
+              <div className="form-group mb-3">
+                <label htmlFor="description">Image</label>
+                <div className="abc">
+                  <StyleDropzone
+                    style={
+                      formik.errors.description && { border: "1px solid red" }
+                    }
+                    {...getRootProps({ className: "dropzone" })}
+                  >
+                    <input {...getInputProps()} />
+
+                    <p style={pj}>
+                      Drag & drop some files here, or click to select files
+                    </p>
+                  </StyleDropzone>
+                  {formik.touched.image && (
+                    <div
+                      id="validationServer03Feedback"
+                      className="text-danger"
+                    >
+                      {formik.errors.image}
+                    </div>
+                  )}
+                  <aside style={thumbsContainer}>{thumbs}</aside>
+                </div>
+
+                {/* <Dropzone
+                  multiple={false}
+                  onDrop={(acceptedFiles) => {
+                    formik.setFieldValue("image", acceptedFiles[0]);
+                  }}
+                  accept="image/jpeg,image/png"
+                  onBlur={formik.handleBlur("image")}
+                >
+                  {({ getRootProps, getInputProps }) => {
+                    return (
+                      <div>
+                        <div
+                          {...getRootProps({
+                            className: "dropzone",
+                            onDrop: (event) => {
+                              event.stopPropagation();
+                            },
+                          })}
+                        >
+                          <input
+                            {...getInputProps()}
+                            className={`form-control form-layanan ${
+                              formik.errors.image && "is-invalid"
+                            }`}
+                          />
+                          <p className="text-secondary">
+                            {" "}
+                            Click here to select image
+                          </p>
+                          {formik.touched.image && (
+                            <div
+                              id="validationServer03Feedback"
+                              className="invalid-feedback"
+                            >
+                              {formik.errors.image}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  }}
+                </Dropzone> */}
               </div>
               <div className="form-group mt-3">
                 {loading ? (
