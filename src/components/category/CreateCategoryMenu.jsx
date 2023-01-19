@@ -24,9 +24,9 @@ function CreateCategoryMenu() {
   });
 
   const storeData = useSelector((store) => store?.category);
-  const { loading, isCreate } = storeData;
+  const { loading, isCreated } = storeData;
 
-  if (isCreate) {
+  if (isCreated) {
     navigate("/category-list");
   }
   // console.log(storeData);
