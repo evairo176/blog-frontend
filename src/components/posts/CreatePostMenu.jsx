@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { createPostAction } from "../../redux/slices/posts/postSlices";
+import CategoryDropdown from "../../utils/CategoryDropdown";
 import LoadingComponent from "../../utils/LoadingComponent";
 
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
   description: Yup.string().required("Description is required"),
+  category: Yup.object().required("Category is required"),
 });
 function CreatePostMenu() {
   const dispatch = useDispatch();
@@ -18,10 +20,17 @@ function CreatePostMenu() {
     initialValues: {
       title: "",
       description: "",
+      category: "",
     },
     onSubmit: (values) => {
       //   console.log(values);
-      dispatch(createPostAction(values));
+      const data = {
+        title: values?.title,
+        category: values?.category?.label,
+        description: values?.description,
+      };
+      //   console.log(data);
+      dispatch(createPostAction(data));
     },
     validationSchema: formSchema,
   });
@@ -58,6 +67,16 @@ function CreatePostMenu() {
                     {formik.errors.title}
                   </div>
                 )}
+              </div>
+              <div className="form-group mb-3">
+                <label htmlFor="category">Category</label>
+                <CategoryDropdown
+                  onChange={formik.setFieldValue}
+                  onBlur={formik.setFieldTouched}
+                  value={formik.values.category?.label}
+                  error={formik.errors.category}
+                  touched={formik.touched.category}
+                />
               </div>
               <div className="form-group mb-3">
                 <label htmlFor="description">Description</label>

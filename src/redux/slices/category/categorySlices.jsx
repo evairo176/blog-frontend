@@ -174,7 +174,7 @@ export const detailCategoryByIdAction = createAsyncThunk(
 
 const categorySlices = createSlice({
   name: "category",
-  initialState: { category: "abc" },
+  initialState: {},
   extraReducers: (builder) => {
     // create category
     builder.addCase(createCategoryAction.pending, (state, action) => {

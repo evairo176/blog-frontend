@@ -28,6 +28,7 @@ export const createPostAction = createAsyncThunk(
         {
           title: value?.title,
           description: value?.description,
+          category: value?.category,
         },
         config
       );
