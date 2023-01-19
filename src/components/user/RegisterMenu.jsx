@@ -2,10 +2,10 @@ import React, { Fragment, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUserAction } from "../../../redux/slices/users/usersSlices";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import LoadingComponent from "../../../utils/LoadingComponent";
+import { registerUserAction } from "../../redux/slices/users/usersSlices";
+import LoadingComponent from "../../utils/LoadingComponent";
 const formSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),

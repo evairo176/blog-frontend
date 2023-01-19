@@ -1,16 +1,16 @@
 import React, { Fragment } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import AddNewCategoryMenu from "../components/category/AddNewCategoryMenu";
+import CategoryListMenu from "../components/category/CategoryListMenu";
+import UpdateCategoryMenu from "../components/category/UpdateCategoryMenu";
 import Navbar from "../components/cummon/Navbar";
+import HomeMenu from "../components/home/HomeMenu";
 import ProtectedAdminRoute from "../components/navigation/ProtectedAdminRoute";
 import ProtectedRoute from "../components/navigation/ProtectedRoute";
-import AddNewCategoryPages from "../pages/dashboard/AddNewCategoryPage";
-import CategoryListPage from "../pages/dashboard/CategoryListPage";
-import ProfilePage from "../pages/dashboard/ProfilePage";
-import UpdateCategoryPage from "../pages/dashboard/UpdateCategoryPage";
-import HomePage from "../pages/home/HomePage";
-import LoginPage from "../pages/user/auth/LoginPage";
-import RegisterPage from "../pages/user/auth/RegisterPage";
+import LoginMenu from "../components/user/LoginMenu";
+import ProfileMenu from "../components/user/ProfileMenu";
+import RegisterMenu from "../components/user/RegisterMenu";
 
 function AppRoutes() {
   return (
@@ -19,9 +19,9 @@ function AppRoutes() {
       <ToastContainer />
       <Routes>
         <>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<HomeMenu />} />
+          <Route path="/register" element={<RegisterMenu />} />
+          <Route path="/login" element={<LoginMenu />} />
 
           {/* page after login  */}
 
@@ -30,7 +30,7 @@ function AppRoutes() {
             path="/add-category"
             element={
               <ProtectedAdminRoute>
-                <AddNewCategoryPages />
+                <AddNewCategoryMenu />
               </ProtectedAdminRoute>
             }
           />
@@ -38,7 +38,7 @@ function AppRoutes() {
             path="/update-category/:id"
             element={
               <ProtectedAdminRoute>
-                <UpdateCategoryPage />
+                <UpdateCategoryMenu />
               </ProtectedAdminRoute>
             }
           />
@@ -46,7 +46,7 @@ function AppRoutes() {
             path="/category-list"
             element={
               <ProtectedAdminRoute>
-                <CategoryListPage />
+                <CategoryListMenu />
               </ProtectedAdminRoute>
             }
           />
@@ -57,7 +57,7 @@ function AppRoutes() {
             path="/profile"
             element={
               <ProtectedRoute>
-                <ProfilePage />
+                <ProfileMenu />
               </ProtectedRoute>
             }
           />

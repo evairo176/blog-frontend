@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import * as Yup from "yup";
 import {
+  deleteCategoryAction,
   detailCategoryByIdAction,
   updateCategoryAction,
-  deleteCategoryAction,
 } from "../../redux/slices/category/categorySlices";
 import LoadingComponent from "../../utils/LoadingComponent";
+
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
 });
