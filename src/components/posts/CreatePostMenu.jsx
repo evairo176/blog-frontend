@@ -107,7 +107,7 @@ function CreatePostMenu() {
         )
       );
     },
-    multiple: false,
+    multiple: true,
     onBlur: () => {
       formik.handleBlur("image");
     },
@@ -131,6 +131,7 @@ function CreatePostMenu() {
       </div>
     );
   });
+  // formik
 
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
@@ -200,9 +201,7 @@ function CreatePostMenu() {
                 <label htmlFor="description">Image</label>
                 <div className="abc">
                   <StyleDropzone
-                    style={
-                      formik.errors.description && { border: "1px solid red" }
-                    }
+                    style={formik.errors.image && { border: "1px solid red" }}
                     {...getRootProps({ className: "dropzone" })}
                   >
                     <input {...getInputProps()} />
