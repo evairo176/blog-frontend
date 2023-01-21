@@ -66,7 +66,7 @@ const userLoginFromStorage = localStorage.getItem("userInfo")
   : null;
 
 // ================================================================
-// logout user action
+// logout user actions
 // ================================================================
 export const logoutUserAction = createAsyncThunk(
   "users/logout",
