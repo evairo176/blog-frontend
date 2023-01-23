@@ -1,5 +1,8 @@
 /* responsive  */
 @media (max-width: 480px) {
+  .container-cssdw {
+    padding: 15px;
+  }
   .img-login {
     max-width: 100%;
   }

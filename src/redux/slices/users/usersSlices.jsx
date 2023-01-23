@@ -1,6 +1,11 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+
+// ================================================================
+// user action
+// ================================================================
+const resetRegisterAction = createAction("users/reset-register");
 
 // ================================================================
 // register user action
@@ -21,6 +26,7 @@ export const registerUserAction = createAsyncThunk(
         value,
         config
       );
+      dispatch(resetRegisterAction());
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -98,9 +104,14 @@ const userSlices = createSlice({
       state.appErr = undefined;
       state.serverErr = undefined;
     });
+    builder.addCase(resetRegisterAction, (state, action) => {
+      state.isRegistered = true;
+    });
     builder.addCase(registerUserAction.fulfilled, (state, action) => {
       state.loading = false;
-      state.registered = action.payload;
+      state.registered = action.payload.user;
+      toast.success(action.payload.message);
+      state.isRegistered = false;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
@@ -109,6 +120,7 @@ const userSlices = createSlice({
       state.loading = false;
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
+      toast.error(`${action.error.message} ${action.payload.message}`);
     });
 
     // login
