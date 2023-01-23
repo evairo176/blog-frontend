@@ -16,7 +16,7 @@ import RegisterMenu from "../components/user/RegisterMenu";
 function AppRoutes() {
   return (
     <Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
       <ToastContainer />
       <Routes>
         <>

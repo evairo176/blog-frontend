@@ -1,3 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 @import "../css/register.css";
 @import "../css/navbar.css";
+@import "../css/login.css";
+@import "../css/responsive.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: "Baloo 2", cursive; */
+  font-family: "Roboto", cursive;
+  box-sizing: border-box;
+}
+
+:root {
+  --inti: #28185d;
+  --inti2: #53c0f3;
+  --white: #ffff;
+  --black: #000000;
+}
+
+body {
+  min-height: 100vh;
+  /* background: #e8f2fc; */
+  overflow-x: hidden;
+}
+.btn:focus {
+  box-shadow: none !important;
+}
+.btn:active {
+  outline: 0 !important;
+}

@@ -1,0 +1,73 @@
+.bg-hasj {
+  background: var(--inti);
+  min-height: 100vh;
+}
+.container-cssdw {
+  padding: 50px;
+}
+.pdwd-title {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 50px;
+}
+.img-login {
+  max-width: 426px;
+}
+.pdwd-title-sign-in {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 90px;
+  margin-bottom: 20px;
+}
+.label-costum {
+  font-size: 14px;
+  color: var(--white);
+}
+.btn-custom {
+  background: var(--inti2);
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.btn-custom:active {
+  background: #c5ecff;
+  color: none !important;
+  background-color: none !important;
+  border-color: none !important;
+}
+.btn-custom:hover {
+  background: #c5ecff;
+}
+.btn-custom:focus {
+  background: #c5ecff;
+}
+.btn-custom:focus-visible {
+  background: #c5ecff;
+  color: none !important;
+  background-color: none !important;
+  border-color: none !important;
+  outline: 0;
+  box-shadow: none !important;
+}
+.jjdwd {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--white);
+}
+.error-custom {
+  margin-top: 10px;
+  /* background: #ffb4b4; */
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  color: #fc3c3c;
+}
+.pdwd-image {
+  text-align: center;
+}
