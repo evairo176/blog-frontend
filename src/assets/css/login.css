@@ -76,7 +76,7 @@
   height: 50px;
 }
 .form-control:focus {
-  color: var(--white) !important;
+  /* color: var(--white) !important; */
   background-color: transparent !important;
   border-color: #86b7fe;
   outline: 0;
