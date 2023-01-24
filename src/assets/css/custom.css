@@ -10,18 +10,21 @@
   /* font-family: "Baloo 2", cursive; */
   font-family: "Roboto", cursive;
   box-sizing: border-box;
+  list-style: none;
 }
 
 :root {
   --inti: #28185d;
   --inti2: #53c0f3;
+  --inti3: #2d1b69;
+  --inti4: #564787;
   --white: #ffff;
   --black: #000000;
 }
-
+/* body  */
 body {
   min-height: 100vh;
-  /* background: #e8f2fc; */
+  background: var(--inti);
   overflow-x: hidden;
 }
 .btn:focus {
@@ -29,4 +32,8 @@ body {
 }
 .btn:active {
   outline: 0 !important;
+}
+.container-blog {
+  width: 80%;
+  margin: 0 auto;
 }

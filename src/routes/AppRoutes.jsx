@@ -4,7 +4,6 @@ import { ToastContainer } from "react-toastify";
 import CreateCategoryMenu from "../components/category/CreateCategoryMenu";
 import CategoryListMenu from "../components/category/CategoryListMenu";
 import UpdateCategoryMenu from "../components/category/UpdateCategoryMenu";
-import Navbar from "../components/cummon/Navbar";
 import HomeMenu from "../components/home/HomeMenu";
 import ProtectedAdminRoute from "../components/navigation/ProtectedAdminRoute";
 import ProtectedRoute from "../components/navigation/ProtectedRoute";
@@ -16,7 +15,6 @@ import RegisterMenu from "../components/user/RegisterMenu";
 function AppRoutes() {
   return (
     <Fragment>
-      {/* <Navbar /> */}
       <ToastContainer />
       <Routes>
         <>

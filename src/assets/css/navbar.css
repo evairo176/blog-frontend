@@ -1,6 +1,152 @@
-/* .dropdown-toggle::after {
+/* .costum-profile-menu.nav-item.dropdown .dropdown-toggle::after {
   display: none;
+}
+.navbar-custom {
+  background: var(--inti3);
+}
+.brand-custom {
+  color: #58c7f3;
+}
+.nav-link-custom {
+  color: white;
+}
+.nav-link-custom:hover {
+  color: #58c7f3;
+}
+.nav-link-custom:active {
+  color: #58c7f3;
+}
+.nav-link-custom:focus {
+  color: #58c7f3;
+}
+.nav-link-custom:focus-visible {
+  color: #58c7f3;
+}
+.active {
+  color: #58c7f3 !important;
 } */
-.costum-profile-menu.nav-item.dropdown .dropdown-toggle::after {
+
+header {
+  height: 70px;
+  background: var(--inti3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-radius: 0 0 10px 10px;
+}
+.profile {
   display: none;
+}
+.logo {
+  width: 120px;
+  margin-right: 8px;
+  color: var(--white);
+}
+.logo img {
+  width: 100%;
+}
+nav .logo {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  margin-bottom: 0;
+}
+li {
+  display: flex;
+  align-items: center;
+}
+nav ul li .nav-link-custom {
+  color: var(--white);
+  margin: 0 2px;
+  font-weight: 600;
+  padding: 8px 18px;
+  transition: 0.2s;
+  border-radius: 30px;
+  text-decoration: none;
+}
+nav ul li .nav-link-custom.active {
+  color: var(--inti2);
+}
+nav ul li .nav-link-custom:hover {
+  background: var(--inti4);
+}
+.hambur {
+  display: none;
+  height: fit-content;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.hambur:hover {
+  background: var(--inti4);
+}
+.hambur div {
+  width: 30px;
+  height: 2px;
+  margin: 6px 0;
+  background: #fff;
+}
+
+@media only screen and (max-width: 1100px) {
+  .container-blog {
+    width: 90%;
+  }
+  header {
+    padding: 0 20px;
+  }
+  nav {
+    position: absolute;
+    left: -300px;
+    top: 0;
+    z-index: 999;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--inti3);
+    transition: 0.2s;
+    box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.05);
+  }
+  #nav_check:checked ~ nav {
+    left: 0;
+  }
+  #nav_check:checked ~ .logo {
+    display: none;
+  }
+  .profile {
+    display: block;
+  }
+  .profile img {
+    width: 30px;
+  }
+  nav .logo {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    margin-left: 30px;
+  }
+  nav ul {
+    padding: 0 20px;
+    margin-top: 30px;
+  }
+  nav ul li {
+    width: 100%;
+    display: block;
+    align-items: center;
+  }
+  nav ul li .costum-profile-menu {
+    display: none;
+  }
+  nav ul li .nav-link-custom {
+    display: block;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  .hambur {
+    display: block;
+  }
 }

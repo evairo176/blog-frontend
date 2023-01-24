@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { createCategoryAction } from "../../redux/slices/category/categorySlices";
 import LoadingComponent from "../../utils/LoadingComponent";
+import Navbar from "../cummon/Navbar";
 const formSchema = Yup.object({
   title: Yup.string().required("Title is required"),
 });
@@ -33,6 +34,7 @@ function CreateCategoryMenu() {
   // abc
   return (
     <Fragment>
+      <Navbar />
       <div className="center">
         <div className="card ">
           <div className="card-header">Add New Category</div>

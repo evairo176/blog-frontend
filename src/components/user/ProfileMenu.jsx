@@ -1,7 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Navbar from "../cummon/Navbar";
 
 function ProfileMenu() {
-  return <div>Profile</div>;
+  return (
+    <Fragment>
+      <Navbar />
+      <h1>ini profile</h1>
+    </Fragment>
+  );
 }
 
 export default ProfileMenu;

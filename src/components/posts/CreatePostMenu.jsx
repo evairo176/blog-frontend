@@ -8,6 +8,7 @@ import CategoryDropdown from "../../utils/CategoryDropdown";
 import LoadingComponent from "../../utils/LoadingComponent";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
+import Navbar from "../cummon/Navbar";
 
 const StyleDropzone = styled.div`
   width: 100%;
@@ -140,6 +141,7 @@ function CreatePostMenu() {
   }, []);
   return (
     <Fragment>
+      <Navbar />
       <div className="center">
         <div className="card ">
           <div className="card-header">Create Post</div>
