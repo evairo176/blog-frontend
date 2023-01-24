@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Fragment } from "react";
+import CategoryFilter from "../../utils/CategoryFilter";
 import PaginationComponent from "../../utils/PaginationComponent";
 import Search from "../../utils/Search";
 import SortComponent from "../../utils/SortComponent";
@@ -12,7 +13,7 @@ import Navbar from "../cummon/Navbar";
 function HomeMenu() {
   const [obj, setObj] = useState({});
   const [sort, setSort] = useState({ sort: "createdAt", order: "desc" });
-  const [filterGenre, setFilterGenre] = useState([]);
+  const [filterCategory, setFilterCategory] = useState([]);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
@@ -21,10 +22,11 @@ function HomeMenu() {
       try {
         const url = `${process.env.REACT_APP_API_URL}/posts?page=${page}&sort=${
           sort.sort
-        },${sort.order}&genre=${filterGenre.toString()}&search=${search}`;
+        },${sort.order}&genre=${filterCategory.toString()}&search=${search}`;
 
         const { data } = await axios.get(url);
         setObj(data);
+        setFilterCategory(data.genre);
         console.log(data);
       } catch (error) {
         console.log(error);
@@ -32,7 +34,7 @@ function HomeMenu() {
     };
 
     fetchAllPost();
-  }, [sort, filterGenre, page, search]);
+  }, [sort, filterCategory, page, search]);
 
   return (
     <Fragment>
@@ -44,6 +46,12 @@ function HomeMenu() {
         </div>
         <div>
           sort <SortComponent sort={sort} setSort={(sort) => setSort(sort)} />
+          <div>
+            <CategoryFilter
+              categories={filterCategory}
+              setFilterCategory={(category) => setFilterCategory(category)}
+            />
+          </div>
         </div>
         <div className="mr-5">
           <TableComponent data={obj?.post ? obj?.post : []} />
