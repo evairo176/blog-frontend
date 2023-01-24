@@ -6,7 +6,7 @@ const store = configureStore({
   reducer: {
     users: usersReducer,
     category: categoryReducer,
-    post: postReducer,
+    posts: postReducer,
   },
 });
 

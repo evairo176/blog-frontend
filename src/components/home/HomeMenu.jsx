@@ -3,7 +3,10 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllPostAction } from "../../redux/slices/posts/postSlices";
 import CategoryFilter from "../../utils/CategoryFilter";
+import { useSearchDebounce } from "../../utils/Delay";
 import PaginationComponent from "../../utils/PaginationComponent";
 import Search from "../../utils/Search";
 import SortComponent from "../../utils/SortComponent";
@@ -11,30 +14,46 @@ import TableComponent from "../../utils/TableComponent";
 import Navbar from "../cummon/Navbar";
 
 function HomeMenu() {
-  const [obj, setObj] = useState({});
+  // const [postList, setpostList] = useState({});
   const [sort, setSort] = useState({ sort: "createdAt", order: "desc" });
   const [filterCategory, setFilterCategory] = useState([]);
   const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useSearchDebounce();
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    const fetchAllPost = async () => {
-      try {
-        const url = `${process.env.REACT_APP_API_URL}/posts?page=${page}&sort=${
-          sort.sort
-        },${sort.order}&genre=${filterCategory.toString()}&search=${search}`;
+    dispatch(
+      fetchAllPostAction({
+        search: search,
+        sort: sort,
+        filterCategory: filterCategory,
+        page: page,
+      })
+    );
+  }, [dispatch, sort, page, filterCategory, search]);
 
-        const { data } = await axios.get(url);
-        setObj(data);
-        setFilterCategory(data.genre);
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const storeData = useSelector((store) => store?.posts);
+  const { postList, appErr, serverErr, loading } = storeData;
+  // console.log(postList);
 
-    fetchAllPost();
-  }, [sort, filterCategory, page, search]);
+  // useEffect(() => {
+  //   fetchAllPost();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [sort, page, filterCategory, search]);
+
+  // const fetchAllPost = async () => {
+  //   try {
+  //     const url = `${process.env.REACT_APP_API_URL}/posts?page=${page}&sort=${
+  //       sort.sort
+  //     },${sort.order}&category=${filterCategory.toString()}&search=${search}`;
+
+  //     const { data } = await axios.get(url);
+  //     setpostList(data);
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <Fragment>
@@ -48,18 +67,25 @@ function HomeMenu() {
           sort <SortComponent sort={sort} setSort={(sort) => setSort(sort)} />
           <div>
             <CategoryFilter
-              categories={filterCategory}
+              filterCategory={filterCategory}
+              categories={postList?.category ? postList?.category : []}
               setFilterCategory={(category) => setFilterCategory(category)}
             />
           </div>
         </div>
         <div className="mr-5">
-          <TableComponent data={obj?.post ? obj?.post : []} />
+          <TableComponent
+            data={postList?.post ? postList?.post : []}
+            loading={loading}
+            page={page}
+            limit={postList?.limit ? postList?.limit : null}
+            total={postList?.total ? postList?.total : null}
+          />
         </div>
         <PaginationComponent
           page={page}
-          limit={obj?.limit ? obj?.limit : 0}
-          total={obj?.total ? obj?.total : 0}
+          limit={postList?.limit ? postList?.limit : 0}
+          total={postList?.total ? postList?.total : 0}
           setPage={(page) => setPage(page)}
         />
       </div>

@@ -45,6 +45,40 @@ export const createPostAction = createAsyncThunk(
 );
 
 // ================================================================
+// fetch all post action
+// ================================================================
+
+export const fetchAllPostAction = createAsyncThunk(
+  "posts/fetch",
+  async (value, { rejectWithValue, getState, dispatch }) => {
+    const user = getState()?.users;
+    const { userAuth } = user;
+    const token = userAuth?.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    // console.log(value);
+    const url = `${process.env.REACT_APP_API_URL}/posts?page=${
+      value.page
+    }&sort=${value.sort.sort},${
+      value.sort.order
+    }&category=${value.filterCategory.toString()}&search=${value.search}`;
+    try {
+      const { data } = await axios.get(url, config);
+      // console.log(data);
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 
@@ -74,6 +108,27 @@ const postSlices = createSlice({
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
       toast.error(`${action.error.message} ${action.payload.message}`);
+    });
+
+    // fetch all category
+    builder.addCase(fetchAllPostAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(fetchAllPostAction.fulfilled, (state, action) => {
+      // console.log(action.payload.post);
+      state.loading = false;
+      state.postList = action.payload;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      // console.log(action.payload.message);
+    });
+    builder.addCase(fetchAllPostAction.rejected, (state, action) => {
+      //   console.log(action.payload);
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
     });
   },
 });

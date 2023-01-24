@@ -5,7 +5,7 @@ function SortComponent({ sort, setSort }) {
   const onSelectChange = (value) => {
     setSort({ sort: value, order: sort.order });
   };
-  console.log(sort);
+
   const onArrorChange = () => {
     if (sort.order === "asc") {
       setSort({ sort: sort.sort, order: "desc" });

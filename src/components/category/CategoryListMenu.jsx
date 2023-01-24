@@ -16,46 +16,11 @@ function CategoryListMenu() {
   const storeData = useSelector((store) => store?.category);
   const { categoryList, appErr, serverErr, loading } = storeData;
   // console.log(storeData);
-  const data = categoryList;
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [dataPerPage] = useState(5);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Get current data
-  const indexOfLastData = currentPage * dataPerPage;
-  const indexOfFirstData = indexOfLastData - dataPerPage;
-  const currentData = data?.slice(indexOfFirstData, indexOfLastData);
-
-  // Change page
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    setCurrentIndex((pageNumber - 1) * dataPerPage);
-  };
 
   return (
     <Fragment>
       <Navbar />
       <div className="container-blog">
-        <div>
-          <ul>
-            {currentData.map((data, index) => (
-              <li key={index}>
-                {currentIndex + index + 1}. {data.title}
-              </li>
-            ))}
-          </ul>
-          <div>
-            <button onClick={() => paginate(1)}>First</button>
-            <button onClick={() => paginate(currentPage - 1)}>Previous</button>
-            <button onClick={() => paginate(currentPage + 1)}>Next</button>
-            <button
-              onClick={() => paginate(Math.ceil(data?.length / dataPerPage))}
-            >
-              Last
-            </button>
-          </div>
-        </div>
         <div className="center">
           <div className="card ">
             <div className="card-header">Category List</div>

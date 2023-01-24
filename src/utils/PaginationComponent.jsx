@@ -3,12 +3,11 @@ import { array } from "yup";
 
 function PaginationComponent({ page, total, limit, setPage }) {
   const totalPages = Math.ceil(total / limit);
+  // console.log(totalPages);
 
   const handlePagination = (newPage) => {
     setPage(newPage + 1);
   };
-
-  const renderPagination = () => {};
 
   return (
     <div className="mt-2">
