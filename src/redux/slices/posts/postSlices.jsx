@@ -51,14 +51,6 @@ export const createPostAction = createAsyncThunk(
 export const fetchAllPostAction = createAsyncThunk(
   "posts/fetch",
   async (value, { rejectWithValue, getState, dispatch }) => {
-    const user = getState()?.users;
-    const { userAuth } = user;
-    const token = userAuth?.token;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
     // console.log(value);
     const url = `${process.env.REACT_APP_API_URL}/posts?page=${
       value.page
@@ -66,7 +58,7 @@ export const fetchAllPostAction = createAsyncThunk(
       value.sort.order
     }&category=${value.filterCategory.toString()}&search=${value.search}`;
     try {
-      const { data } = await axios.get(url, config);
+      const { data } = await axios.get(url);
       // console.log(data);
       return data;
     } catch (error) {
