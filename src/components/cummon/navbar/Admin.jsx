@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { logoutUserAction } from "../../../redux/slices/users/usersSlices";
@@ -130,73 +130,6 @@ function Admin({ isLogin }) {
           </label>
         </header>
       </div>
-
-      {/* <Navbar
-        collapseOnSelect
-        expand="lg"
-        fixed="top"
-        className="navbar-custom"
-      >
-        <Container>
-          <Link className="navbar-brand brand-custom" to="/">
-            Web Blog b
-          </Link>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              {navigation_left?.length > 0
-                ? navigation_left?.map((row, key) => {
-                    return (
-                      <Link
-                        key={key}
-                        className={`nav-link nav-link-custom `}
-                        to={`${row.path}`}
-                      >
-                        {row.name}
-                      </Link>
-                    );
-                  })
-                : ""}
-            </Nav>
-            <Nav>
-              <NavDropdown
-                className="costum-profile-menu dropleft"
-                title={
-                  <img
-                    src="https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png"
-                    className="rounded-circle"
-                    style={{ width: "40px" }}
-                    alt=""
-                  />
-                }
-                id="collasible-nav-dropdown"
-              >
-                {navigation_right?.length > 0
-                  ? navigation_right?.map((row, key) => {
-                      return (
-                        <Link
-                          key={key}
-                          className={`dropdown-item`}
-                          to={`${row.path}`}
-                          style={{ fontSize: "13px" }}
-                        >
-                          {row.name}
-                        </Link>
-                      );
-                    })
-                  : ""}
-                <div
-                  style={{ fontSize: "13px" }}
-                  onClick={() => dispatch(logoutUserAction())}
-                  className="dropdown-item"
-                >
-                  Logout
-                </div>
-              </NavDropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar> */}
     </Fragment>
   );
 }

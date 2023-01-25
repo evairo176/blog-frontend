@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../../../assets/images/logo.png";
 
 function Public() {
+  const { pathname } = useLocation();
   const navigation_left = [
     { name: "Create", path: "/create-post", current: false },
     { name: "Posts", path: "/posts", current: false },
@@ -14,41 +16,53 @@ function Public() {
 
   return (
     <Fragment>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Link className="navbar-brand" to="/">
-            Web Blog
-          </Link>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              {navigation_left?.length > 0
-                ? navigation_left?.map((row, key) => {
-                    return (
-                      <Link
-                        key={key}
-                        className={`nav-link ${className(
-                          row.current ? "text-danger" : ""
-                        )}`}
-                        to={`${row.path}`}
-                      >
-                        {row.name}
-                      </Link>
-                    );
-                  })
-                : ""}
-            </Nav>
-            <Nav>
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-              <Link className="nav-link" to="/register">
-                Register
-              </Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <div className="container-blog">
+        <header>
+          <div className="logo">
+            <img src={logo} alt="logo" />
+          </div>
+          <input type="checkbox" id="nav_check" hidden />
+          <nav>
+            <div className="logo">
+              <img src={logo} alt="logo" />
+            </div>
+            <ul>
+              <li>
+                {navigation_left?.length > 0
+                  ? navigation_left?.map((row, key) => {
+                      return (
+                        <Link
+                          key={key}
+                          className={`nav-link-custom ${
+                            pathname === row.path ? "active" : ""
+                          }`}
+                          to={`${row.path}`}
+                        >
+                          {row.name}
+                        </Link>
+                      );
+                    })
+                  : ""}
+              </li>
+              <li>
+                <Link className="nav-link-custom" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link className="nav-link-custom" to="/register">
+                  Register
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <label htmlFor="nav_check" className="hambur">
+            <div></div>
+            <div></div>
+            <div></div>
+          </label>
+        </header>
+      </div>
     </Fragment>
   );
 }
