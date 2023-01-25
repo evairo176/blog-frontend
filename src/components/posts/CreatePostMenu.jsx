@@ -86,7 +86,7 @@ function CreatePostMenu() {
     validationSchema: formSchema,
   });
 
-  const storeData = useSelector((store) => store?.post);
+  const storeData = useSelector((store) => store?.posts);
   const { loading, isCreated } = storeData;
   if (isCreated) {
     navigate("/post-list");
@@ -220,6 +220,7 @@ function CreatePostMenu() {
                       {formik.errors.image}
                     </div>
                   )}
+
                   <aside style={thumbsContainer}>{thumbs}</aside>
                 </div>
 

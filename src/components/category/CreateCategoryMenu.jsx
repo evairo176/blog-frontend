@@ -35,7 +35,8 @@ function CreateCategoryMenu() {
   return (
     <Fragment>
       <Navbar />
-      <div className="center">
+      <div className="container-content-blog">dwad</div>
+      {/* <div className="center">
         <div className="card ">
           <div className="card-header">Add New Category</div>
           <div className="card-body">
@@ -75,7 +76,7 @@ function CreateCategoryMenu() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
     </Fragment>
   );
 }

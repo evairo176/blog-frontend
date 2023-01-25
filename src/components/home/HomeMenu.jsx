@@ -58,7 +58,35 @@ function HomeMenu() {
   return (
     <Fragment>
       <Navbar />
-      <div className="text-center mt-2">
+      <div className="container-content-blog">
+        <div className="row">
+          <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12">
+            <div className="box-content-blob">
+              <div className="row">
+                <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                  <div className="title-post">My Css</div>
+                  <div className="description-post">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Nemo aliquid doloremque placeat sed, ullam ab alias delectus
+                    quos dignissimos ipsum illo quisquam id debitis, architecto
+                    quis maxime laboriosam vitae veniam?
+                  </div>
+                </div>
+                <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                  <div className="image-post">
+                    <img
+                      src={`https://res.cloudinary.com/dijghadni/image/upload/v1674565589/jc7fbzbhrkzzqikhfssb.jpg`}
+                      alt="post"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="author-post">Dicki Prasetya</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="text-center mt-2">
         <h1>Web Blog</h1>
         <div className="form-group">
           <Search setSearch={(value) => setSearch(value)} />
@@ -88,7 +116,7 @@ function HomeMenu() {
           total={postList?.total ? postList?.total : 0}
           setPage={(page) => setPage(page)}
         />
-      </div>
+      </div> */}
     </Fragment>
   );
 }

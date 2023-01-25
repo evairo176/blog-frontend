@@ -26,7 +26,11 @@ body {
   min-height: 100vh;
   background: var(--inti);
   overflow-x: hidden;
-  color: var(--inti2);
+
+  /* color: var(--inti2); */
+}
+img {
+  width: 100%;
 }
 .btn:focus {
   box-shadow: none !important;
@@ -37,4 +41,11 @@ body {
 .container-blog {
   width: 80%;
   margin: 0 auto;
+}
+.container-content-blog {
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
 }
