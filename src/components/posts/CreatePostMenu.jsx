@@ -9,7 +9,7 @@ import LoadingComponent from "../../utils/LoadingComponent";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import Navbar from "../cummon/Navbar";
-
+//
 const StyleDropzone = styled.div`
   width: 100%;
   min-height: 80px;
