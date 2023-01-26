@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import { Form } from "react-bootstrap";
 
 function CategoryFilter({ categories, filterCategory, setFilterCategory }) {
   const handleChekbox = ({ currentTarget: input }) => {
@@ -15,20 +16,24 @@ function CategoryFilter({ categories, filterCategory, setFilterCategory }) {
 
   return (
     <div>
-      <h1>filter category</h1>
       <div className="form-group">
-        {categories.map((row, key) => {
-          return (
-            <Fragment key={key}>
-              <input
-                type="checkbox"
-                value={row}
-                onChange={(e) => handleChekbox(e)}
-              />
-              <p>{row}</p>
-            </Fragment>
-          );
-        })}
+        <Fragment>
+          <div className="row">
+            {categories.map((row, key) => {
+              return (
+                <div key={key} className="col-6">
+                  <Form.Check
+                    type="checkbox"
+                    value={row}
+                    onChange={(e) => handleChekbox(e)}
+                    id={`default-${key}`}
+                    label={`${row}`}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </Fragment>
       </div>
     </div>
   );

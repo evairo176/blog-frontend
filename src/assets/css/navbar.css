@@ -59,13 +59,16 @@ li {
   align-items: center;
 }
 nav ul li .nav-link-custom {
-  color: var(--white);
+  color: var(--font);
   margin: 0 2px;
   font-weight: 600;
   padding: 8px 18px;
   transition: 0.2s;
   border-radius: 30px;
   text-decoration: none;
+}
+nav ul li .nav-link-custom:focus-visible {
+  outline: 2px solid var(--inti2);
 }
 nav ul li .nav-link-custom.active {
   color: var(--inti2);
@@ -83,12 +86,13 @@ nav ul li .nav-link-custom:hover {
 }
 .hambur:hover {
   background: var(--inti4);
+  color: var(--white);
 }
 .hambur div {
   width: 30px;
   height: 2px;
   margin: 6px 0;
-  background: #fff;
+  background: var(--font);
 }
 
 @media only screen and (max-width: 1100px) {
@@ -130,6 +134,7 @@ nav ul li .nav-link-custom:hover {
   nav ul {
     padding: 0 20px;
     margin-top: 30px;
+    display: block;
   }
   nav ul li {
     width: 100%;
@@ -145,6 +150,7 @@ nav ul li .nav-link-custom:hover {
     padding: 10px 15px;
     border-radius: 5px;
     width: 100%;
+    color: var(--font);
   }
   .hambur {
     display: block;

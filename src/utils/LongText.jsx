@@ -26,7 +26,9 @@ function LongText({ content, limit }) {
   return (
     <div>
       {toShow}
-      <button onClick={showMore}>Read more</button>
+      <button className="btn btn-more-kdawd" onClick={showMore}>
+        Read more
+      </button>
     </div>
   );
 }

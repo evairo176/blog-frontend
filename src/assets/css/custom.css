@@ -15,12 +15,14 @@
 }
 
 :root {
-  --inti: #28185d;
+  --inti: #e6e6e6;
   --inti2: #53c0f3;
-  --inti3: #2d1b69;
-  --inti4: #564787;
-  --white: #ffff;
+  --inti3: #fff;
+  --inti4: #53c0f3;
+  --font: #40454d;
+  --pfont: #707174;
   --black: #000000;
+  --white: #fff;
 }
 /* body  */
 body {

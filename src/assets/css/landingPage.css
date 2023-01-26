@@ -10,8 +10,8 @@
 }
 .name-dw {
   font-size: 16px;
-  font-weight: 300;
-  color: rgb(209 209 209);
+  font-weight: 600;
+  color: var(--font);
 }
 
 .title-post {
@@ -20,7 +20,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-weight: 800;
-  color: #fff;
+  color: var(--font);
 }
 .image-post img {
   width: 100%;
@@ -30,17 +30,31 @@
   line-height: 20px;
   font-size: 16px;
   text-align: justify;
-  color: rgb(209 209 209);
+  color: var(--pfont);
 }
 .time-detail-dwd {
   font-size: 15px;
-  color: rgb(209 209 209);
+  color: var(--pfont);
 }
 .category-dad {
   padding: 4px;
-  background: #2d1b69;
+  background: var(--inti2);
+  color: var(--white);
   border-radius: 10px;
 }
 .box-blog-post-dawd {
   overflow: hidden;
+}
+.p-kategory-daw {
+  font-size: 21px;
+  color: var(--pfont);
+  font-weight: 600;
+}
+label.form-check-label {
+  color: var(--pfont);
+  font-size: 16px;
+}
+.btn-more-kdawd {
+  margin: 6px 0;
+  color: var(--pfont);
 }
