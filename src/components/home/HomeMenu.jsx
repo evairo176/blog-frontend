@@ -13,6 +13,7 @@ import Search from "../../utils/Search";
 import SortComponent from "../../utils/SortComponent";
 import TableComponent from "../../utils/TableComponent";
 import Navbar from "../cummon/Navbar";
+import "../../assets/css/landingPage.css";
 
 function HomeMenu() {
   // const [postList, setpostList] = useState({});
@@ -70,6 +71,20 @@ function HomeMenu() {
               total={postList?.total ? postList?.total : null}
             />
           </div>
+          <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div className="box-content-blob">
+              <div className="p-kategory-daw">
+                Discover more of what matters to you
+              </div>
+              <div className="category-ddw">
+                <CategoryFilter
+                  filterCategory={filterCategory}
+                  categories={postList?.category ? postList?.category : []}
+                  setFilterCategory={(category) => setFilterCategory(category)}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="text-center mt-2">
@@ -79,13 +94,7 @@ function HomeMenu() {
         </div>
         <div>
           sort <SortComponent sort={sort} setSort={(sort) => setSort(sort)} />
-          <div>
-            <CategoryFilter
-              filterCategory={filterCategory}
-              categories={postList?.category ? postList?.category : []}
-              setFilterCategory={(category) => setFilterCategory(category)}
-            />
-          </div>
+          <div></div>
         </div>
         <div className="mr-5">
           <TableComponent

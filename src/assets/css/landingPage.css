@@ -3,7 +3,6 @@
 }
 .author-post {
   display: flex;
-  justify-content: start;
   align-items: center;
 }
 .author-post img {
