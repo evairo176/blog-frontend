@@ -43,13 +43,14 @@ body {
   outline: 0 !important;
 }
 .container-blog {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 .container-content-blog {
-  width: 80%;
-  margin-top: 30px;
+  width: 100%;
+  margin-top: 80px;
   margin-bottom: 30px;
   margin-right: auto;
   margin-left: auto;
+  padding: 0 150px;
 }

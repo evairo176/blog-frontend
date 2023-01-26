@@ -9,6 +9,12 @@
   nav {
     width: 230px;
   }
+  header {
+    padding: 0 20px;
+  }
+  .container-content-blog {
+    padding: 0 20px;
+  }
 }
 
 @media (min-width: 480px) and (max-width: 575.98px) {
@@ -21,6 +27,12 @@
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  header {
+    padding: 0 50px;
+  }
+  .container-content-blog {
+    padding: 0 50px;
+  }
 }
 
 @media (min-width: 1200px) {
