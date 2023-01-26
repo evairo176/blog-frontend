@@ -25,6 +25,7 @@
 .image-post img {
   width: 100%;
   height: 160px;
+  border-radius: 10px;
 }
 .description-post {
   line-height: 20px;
@@ -38,7 +39,7 @@
 }
 .category-dad {
   padding: 4px;
-  background: var(--inti2);
+  background: var(--ppfont);
   color: var(--white);
   border-radius: 10px;
 }
@@ -56,5 +57,10 @@ label.form-check-label {
 }
 .btn-more-kdawd {
   margin: 6px 0;
-  color: var(--pfont);
+  background: var(--font);
+  color: var(--white);
+}
+.btn-more-kdawd:hover {
+  background: var(--pfont);
+  color: var(--white);
 }

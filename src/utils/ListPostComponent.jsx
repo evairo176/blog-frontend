@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import DateFormatter from "./DateFormatter";
 import LoadingComponent from "./LoadingComponent";
@@ -29,7 +30,7 @@ function ListPostComponent({ data, loading, page, limit, total }) {
                       <LongText content={row.description} limit={300} />
                     </div>
                     <div className="time-detail-dwd">
-                      <DateFormatter date={row.createdAt} /> · 24 min read ·{" "}
+                      {moment(row.createdAt).fromNow()} · 24 min read ·{" "}
                       <span className="category-dad">{row.category}</span>
                     </div>
                   </div>
