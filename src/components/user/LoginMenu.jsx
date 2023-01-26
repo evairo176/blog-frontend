@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { loginUserAction } from "../../redux/slices/users/usersSlices";
 import LoadingComponent from "../../utils/LoadingComponent";
 import imgLogin from "../../assets/images/image-login.svg";
-import "../";
+import "../../assets/css/login.css";
 
 const formSchema = Yup.object({
   email: Yup.string().required("Email is required").email("Invalid email"),
