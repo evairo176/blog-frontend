@@ -15,15 +15,16 @@
 }
 
 :root {
-  --inti: #e6e6e6;
-  --inti2: #53c0f3;
-  --inti3: #fff;
-  --inti4: #53c0f3;
-  --font: #40454d;
-  --pfont: #707174;
-  --ppfont: #98999c;
+  --inti: #252732;
+  --inti2: #bf95d9;
+  --nav: #252732;
+  --inti4: #bf95d9;
+  --font: #f8f8f2;
+  --pfont: #f8f8f2;
+  --ppfont: #e8f8f2;
   --black: #000000;
   --white: #fff;
+  --bg-btn: #506cba;
 }
 /* body  */
 body {

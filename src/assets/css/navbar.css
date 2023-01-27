@@ -28,7 +28,7 @@
 
 header {
   height: 70px;
-  background: var(--inti3);
+  background: var(--nav);
   display: flex;
   align-items: center;
   justify-content: space-between;
