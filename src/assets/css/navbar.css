@@ -117,7 +117,7 @@ nav ul li .nav-link-custom:hover {
     z-index: 999;
     width: 280px;
     height: 100vh;
-    background-color: var(--inti3);
+    background-color: var(--inti);
     transition: 0.2s;
     box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.05);
   }

@@ -16,6 +16,7 @@ import Navbar from "../cummon/Navbar";
 import "../../assets/css/landingPage.css";
 import PaginationCustom from "../../utils/PaginationCustom";
 import LoadingComponent from "../../utils/LoadingComponent";
+import SpeedDialComponent from "../../utils/SpeedDialComponent";
 
 function HomeMenu() {
   // const [postList, setpostList] = useState({});
@@ -126,6 +127,7 @@ function HomeMenu() {
           />
         </div>
       </div>
+      <SpeedDialComponent />
     </Fragment>
   );
 }

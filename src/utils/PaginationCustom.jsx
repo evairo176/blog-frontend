@@ -3,13 +3,7 @@ import React from "react";
 
 function PaginationCustom({ limit, total, setPage, loading }) {
   const totalPages = Math.ceil(total / limit);
-  const classes = {
-    ul: {
-      "& .MuiPaginationItem-root": {
-        color: "#fff",
-      },
-    },
-  };
+
   return (
     <div>
       <Pagination

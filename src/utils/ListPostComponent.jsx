@@ -1,6 +1,5 @@
 import moment from "moment";
 import React from "react";
-import DateFormatter from "./DateFormatter";
 import LoadingComponent from "./LoadingComponent";
 import LongText from "./LongText";
 
@@ -37,7 +36,7 @@ function ListPostComponent({ data, loading, page, limit, total }) {
                 </div>
                 <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
                   <div className="image-post">
-                    <img src={`${row.image}`} alt="post" />
+                    <img loading="lazy" src={`${row.image}`} alt="post" />
                   </div>
                 </div>
               </div>

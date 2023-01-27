@@ -57,12 +57,12 @@ label.form-check-label {
 }
 .btn-more-kdawd {
   margin: 6px 0;
-  background: var(--font);
+  background: var(--inti2);
   color: var(--white);
 }
 .btn-more-kdawd:hover {
   background: var(--pfont);
-  color: var(--white);
+  color: var(--bg-btn);
 }
 .btn-pagination-dwadw {
   display: flex;
@@ -97,4 +97,9 @@ label.form-check-label {
 .btn-pagination-dwadw.active-wdwd {
   background: var(--inti2);
   color: var(--white);
+}
+.position-dial-dwd {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
