@@ -99,7 +99,7 @@ nav ul li .nav-link-custom:hover {
   margin: 6px 0;
   background: var(--font);
 }
-
+/* check  */
 @media only screen and (max-width: 1100px) {
   .container-blog {
     width: 100%;
