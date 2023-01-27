@@ -42,6 +42,8 @@ body {
 }
 .btn:active {
   outline: 0 !important;
+  background: none !important;
+  color: none !important;
 }
 .container-blog {
   width: 100%;

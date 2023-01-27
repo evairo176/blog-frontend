@@ -10,13 +10,15 @@ function PaginationComponent({ page, total, limit, setPage }) {
   };
 
   return (
-    <div className="mt-2">
+    <div className="btn-group pagination-dwdj">
       {totalPages > 0 &&
         [...Array(totalPages)].map((row, key) => {
           return (
             <button
               key={key}
-              className={`${page === key + 1 ? "bg-primary" : ""}`}
+              className={`btn-pagination-dwadw ${
+                page === key + 1 ? "active-wdwd" : ""
+              }`}
               onClick={() => handlePagination(key)}
             >
               {key + 1}

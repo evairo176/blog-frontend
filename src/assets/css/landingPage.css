@@ -64,3 +64,37 @@ label.form-check-label {
   background: var(--pfont);
   color: var(--white);
 }
+.btn-pagination-dwadw {
+  display: flex;
+  border: 0;
+  padding: 7px 15px;
+  border-radius: 19px;
+  margin-right: 10px;
+  background: var(--white);
+  color: var(--inti2);
+}
+.btn-pagination-dwadw:active {
+  background: var(--inti2);
+  color: var(--white);
+}
+.btn-pagination-dwadw:hover {
+  background: var(--inti2);
+  color: var(--white);
+}
+.btn-pagination-dwadw:focus {
+  background: var(--inti2);
+  color: var(--white);
+}
+.btn-pagination-dwadw:focus-visible {
+  background: var(--inti2);
+  color: var(--white);
+}
+.btn-pagination-dwadw:focus-visible {
+  background: var(--inti2);
+  color: var(--white);
+}
+
+.btn-pagination-dwadw.active-wdwd {
+  background: var(--inti2);
+  color: var(--white);
+}

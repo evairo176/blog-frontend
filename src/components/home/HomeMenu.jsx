@@ -70,6 +70,14 @@ function HomeMenu() {
               limit={postList?.limit ? postList?.limit : null}
               total={postList?.total ? postList?.total : null}
             />
+            <div className="text-center">
+              <PaginationComponent
+                page={page}
+                limit={postList?.limit ? postList?.limit : 0}
+                total={postList?.total ? postList?.total : 0}
+                setPage={(page) => setPage(page)}
+              />
+            </div>
           </div>
           <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
             <div className="box-content-blob">
@@ -105,12 +113,6 @@ function HomeMenu() {
             total={postList?.total ? postList?.total : null}
           />
         </div>
-        <PaginationComponent
-          page={page}
-          limit={postList?.limit ? postList?.limit : 0}
-          total={postList?.total ? postList?.total : 0}
-          setPage={(page) => setPage(page)}
-        />
       </div>
     </Fragment>
   );
