@@ -8,12 +8,14 @@ import { fetchAllPostAction } from "../../redux/slices/posts/postSlices";
 import CategoryFilter from "../../utils/CategoryFilter";
 import { useSearchDebounce } from "../../utils/Delay";
 import ListPostComponent from "../../utils/ListPostComponent";
-import PaginationComponent from "../../utils/PaginationComponent";
+// import PaginationComponent from "../../utils/PaginationComponent";
 import Search from "../../utils/Search";
 import SortComponent from "../../utils/SortComponent";
 import TableComponent from "../../utils/TableComponent";
 import Navbar from "../cummon/Navbar";
 import "../../assets/css/landingPage.css";
+import PaginationCustom from "../../utils/PaginationCustom";
+import LoadingComponent from "../../utils/LoadingComponent";
 
 function HomeMenu() {
   // const [postList, setpostList] = useState({});
@@ -69,14 +71,24 @@ function HomeMenu() {
               page={page}
               limit={postList?.limit ? postList?.limit : null}
               total={postList?.total ? postList?.total : null}
+              itemsPerPage={4}
             />
             <div className="text-center">
-              <PaginationComponent
-                page={page}
+              {/* itemsPerPage, post ,setPage */}
+
+              <PaginationCustom
+                loading={loading}
                 limit={postList?.limit ? postList?.limit : 0}
                 total={postList?.total ? postList?.total : 0}
                 setPage={(page) => setPage(page)}
               />
+
+              {/* <PaginationComponent
+                page={page}
+                limit={postList?.limit ? postList?.limit : 0}
+                total={postList?.total ? postList?.total : 0}
+                setPage={(page) => setPage(page)}
+              /> */}
             </div>
           </div>
           <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
