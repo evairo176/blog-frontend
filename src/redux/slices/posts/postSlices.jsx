@@ -71,6 +71,38 @@ export const fetchAllPostAction = createAsyncThunk(
 );
 
 // ================================================================
+// add likes post action
+// ================================================================
+
+export const addLikePostAction = createAsyncThunk(
+  "posts/likes",
+  async (values, { rejectWithValue, getState, dispatch }) => {
+    const user = getState()?.users;
+    const { userAuth } = user;
+    const token = userAuth?.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API_URL}/posts/likes`,
+        values,
+        config
+      );
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 
