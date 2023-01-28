@@ -22,8 +22,11 @@
   font-weight: 800;
   color: var(--font);
 }
-.image-post img {
-  width: 100%;
+
+.image-post {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   height: 150px;
 }
 .description-post {

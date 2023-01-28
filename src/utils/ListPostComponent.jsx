@@ -41,8 +41,11 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                 </div>
               </div>
               <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12 mb-2">
-                <div className="image-post">
-                  <img loading="lazy" src={`${row.image}`} alt="post" />
+                <div
+                  className="image-post"
+                  style={{ backgroundImage: `url('${row.image}')` }}
+                >
+                  {/* <img loading="lazy" src={`${row.image}`} alt="post" /> */}
                 </div>
                 <div className="action-dwad">
                   <div className="action-dw">
