@@ -14,7 +14,7 @@ function ListPostComponent({ data, loading, page, limit, total }) {
           return (
             <div key={key} className="box-content-blob">
               <div className="row">
-                <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12 mb-2">
                   <div className="box-blog-post-dawd">
                     <div className="author-post">
                       <div className="img-author-dawd">
@@ -37,19 +37,29 @@ function ListPostComponent({ data, loading, page, limit, total }) {
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12 mb-2">
                   <div className="image-post">
                     <img loading="lazy" src={`${row.image}`} alt="post" />
                   </div>
                   <div className="action-dwad">
-                    <div className="action">
+                    <div className="action-dw">
                       <ThumbUpAltIcon />
+                      <span className="sum-action-dwad">
+                        {row.likes.lenght ? row.likes.lenght : "0"}
+                      </span>
                     </div>
-                    <div className="action">
+                    <div className="action-dw">
                       <ThumbDownAltIcon />
+                      <span className="sum-action-dwad">
+                        {row.disLikes.lenght ? row.disLikes.lenght : "0"}
+                      </span>
                     </div>
-                    <div className="action">
+                    <div className="action-dw">
                       <VisibilityIcon />
+                      <span className="sum-action-dwad">
+                        {" "}
+                        {row.numViews.lenght ? row.numViews.lenght : "0"}
+                      </span>
                     </div>
                   </div>
                 </div>

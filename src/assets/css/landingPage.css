@@ -110,3 +110,12 @@ label.form-check-label {
   background: var(--white);
   padding: 5px 20px;
 }
+.sum-action-dwad {
+  font-size: 12px;
+  color: rgb(109, 109, 109);
+}
+.action-dw {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
