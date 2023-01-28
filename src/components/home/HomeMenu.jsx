@@ -26,6 +26,11 @@ function HomeMenu() {
   const [search, setSearch] = useSearchDebounce();
 
   const dispatch = useDispatch();
+
+  const storeData = useSelector((store) => store?.posts);
+  const storeDataUser = useSelector((store) => store?.users);
+  const { postList, appErr, serverErr, loading, likes } = storeData;
+  const { userAuth } = storeDataUser;
   useEffect(() => {
     dispatch(
       fetchAllPostAction({
@@ -35,10 +40,8 @@ function HomeMenu() {
         page: page,
       })
     );
-  }, [dispatch, sort, page, filterCategory, search]);
+  }, [likes, dispatch, sort, page, filterCategory, search]);
 
-  const storeData = useSelector((store) => store?.posts);
-  const { postList, appErr, serverErr, loading } = storeData;
   // console.log(postList);
 
   // useEffect(() => {
@@ -87,6 +90,7 @@ function HomeMenu() {
               limit={postList?.limit ? postList?.limit : null}
               total={postList?.total ? postList?.total : null}
               itemsPerPage={4}
+              userAuth={userAuth}
             />
             <div className="text-center">
               {/* itemsPerPage, post ,setPage */}

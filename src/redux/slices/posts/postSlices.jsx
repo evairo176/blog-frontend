@@ -89,9 +89,12 @@ export const addLikePostAction = createAsyncThunk(
     try {
       const { data } = await axios.put(
         `${process.env.REACT_APP_API_URL}/posts/likes`,
-        values,
+        {
+          postId: values,
+        },
         config
       );
+      console.log(data);
       return data;
     } catch (error) {
       if (!error?.response) {
@@ -134,7 +137,7 @@ const postSlices = createSlice({
       toast.error(`${action.error.message} ${action.payload.message}`);
     });
 
-    // fetch all category
+    // fetch all post
     builder.addCase(fetchAllPostAction.pending, (state, action) => {
       state.loading = true;
       state.appErr = undefined;
@@ -149,6 +152,27 @@ const postSlices = createSlice({
       // console.log(action.payload.message);
     });
     builder.addCase(fetchAllPostAction.rejected, (state, action) => {
+      //   console.log(action.payload);
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
+    });
+
+    // add likes action
+    builder.addCase(addLikePostAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(addLikePostAction.fulfilled, (state, action) => {
+      // console.log(action.payload.post);
+      state.loading = false;
+      state.likes = action.payload;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      // console.log(action.payload.message);
+    });
+    builder.addCase(addLikePostAction.rejected, (state, action) => {
       //   console.log(action.payload);
       state.loading = false;
       state.appErr = action.payload.message;
