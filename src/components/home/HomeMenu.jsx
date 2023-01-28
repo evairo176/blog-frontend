@@ -65,6 +65,20 @@ function HomeMenu() {
       <Navbar />
       <div className="container-content-blog">
         <div className="row">
+          <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div className="box-content-blob">
+              <div className="p-kategory-daw">
+                Discover more of what matters to you
+              </div>
+              <div className="category-ddw">
+                <CategoryFilter
+                  filterCategory={filterCategory}
+                  categories={postList?.category ? postList?.category : []}
+                  setFilterCategory={(category) => setFilterCategory(category)}
+                />
+              </div>
+            </div>
+          </div>
           <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12">
             <ListPostComponent
               data={postList?.post ? postList?.post : []}
@@ -90,20 +104,6 @@ function HomeMenu() {
                 total={postList?.total ? postList?.total : 0}
                 setPage={(page) => setPage(page)}
               /> */}
-            </div>
-          </div>
-          <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
-            <div className="box-content-blob">
-              <div className="p-kategory-daw">
-                Discover more of what matters to you
-              </div>
-              <div className="category-ddw">
-                <CategoryFilter
-                  filterCategory={filterCategory}
-                  categories={postList?.category ? postList?.category : []}
-                  setFilterCategory={(category) => setFilterCategory(category)}
-                />
-              </div>
             </div>
           </div>
         </div>
