@@ -88,11 +88,11 @@ function LoginMenu() {
                   </div>
                   <div className="form-group mb-2">
                     {loading ? (
-                      <button className="btn btn-custom">
+                      <button className="btn-custom">
                         <LoadingComponent />
                       </button>
                     ) : (
-                      <button className="btn btn-custom">Login Now</button>
+                      <button className="btn-custom">Login Now</button>
                     )}
                   </div>
                   <Link to="/register" className="jjdwd">

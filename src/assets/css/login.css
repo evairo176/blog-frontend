@@ -27,10 +27,14 @@
 }
 .btn-custom {
   background: var(--inti2);
+  color: var(--white);
   width: 100%;
   font-size: 18px;
   font-weight: 600;
   margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
 }
 .btn-custom:active {
   background: #c5ecff;
@@ -40,6 +44,7 @@
 }
 .btn-custom:hover {
   background: #c5ecff;
+  color: var(--inti2);
 }
 .btn-custom:focus {
   background: #c5ecff;
