@@ -1,18 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import Select from "react-select";
-import { fetchAllCategoryAction } from "../redux/slices/category/categorySlices";
 
 function CategoryDropdown(props) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAllCategoryAction());
-  }, [dispatch]);
-
-  const storeData = useSelector((store) => store?.category);
-  const { categoryList, loading } = storeData;
-  const allCategory = categoryList?.map((row) => {
+  const allCategory = props?.data?.map((row) => {
     return {
       value: row?._id,
       label: row?.title,
@@ -21,22 +11,22 @@ function CategoryDropdown(props) {
 
   // handle change
   const handleChange = (value) => {
-    props.onChange("category", value);
+    props.onChange(props?.category, value);
   };
 
   // handle blur
   const handleBlur = () => {
-    props.onBlur("category", true);
+    props.onBlur(props?.category, true);
   };
   return (
     <div>
-      {loading ? (
+      {props?.loading ? (
         <div>Category is Loading...</div>
       ) : (
         <Select
           onChange={handleChange}
           onBlur={handleBlur}
-          id="category"
+          id={props?.category}
           options={allCategory}
           value={props?.value?.label}
           styles={{

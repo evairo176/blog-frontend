@@ -9,6 +9,8 @@ import LoadingComponent from "../../utils/LoadingComponent";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import Navbar from "../cummon/Navbar";
+import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
+
 //
 const StyleDropzone = styled.div`
   width: 100%;
@@ -88,6 +90,9 @@ function CreatePostMenu() {
 
   const storeData = useSelector((store) => store?.posts);
   const { loading, isCreated } = storeData;
+
+  const storeCategory = useSelector((store) => store?.category);
+  const { categoryList, loadingCategory } = storeCategory;
   if (isCreated) {
     navigate("/post-list");
   }
@@ -135,7 +140,7 @@ function CreatePostMenu() {
   // formik
 
   useEffect(() => {
-    // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
+    dispatch(fetchAllCategoryAction());
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -176,6 +181,9 @@ function CreatePostMenu() {
                   value={formik.values.category?.label}
                   error={formik.errors.category}
                   touched={formik.touched.category}
+                  id="category"
+                  data={categoryList}
+                  loading={loadingCategory}
                 />
               </div>
               <div className="form-group mb-3">
