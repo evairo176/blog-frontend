@@ -94,7 +94,7 @@ function CreatePostMenu() {
   const storeCategory = useSelector((store) => store?.category);
   const { categoryList, loadingCategory } = storeCategory;
   if (isCreated) {
-    navigate("/post-list");
+    navigate("/posts");
   }
   //   console.log(formik.values.image);
 

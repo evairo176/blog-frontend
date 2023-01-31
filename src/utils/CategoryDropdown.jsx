@@ -11,12 +11,12 @@ function CategoryDropdown(props) {
 
   // handle change
   const handleChange = (value) => {
-    props.onChange(props?.category, value);
+    props.onChange(props?.id, value);
   };
 
   // handle blur
   const handleBlur = () => {
-    props.onBlur(props?.category, true);
+    props.onBlur(props?.id, true);
   };
   return (
     <div>
@@ -26,7 +26,7 @@ function CategoryDropdown(props) {
         <Select
           onChange={handleChange}
           onBlur={handleBlur}
-          id={props?.category}
+          id={props?.id}
           options={allCategory}
           value={props?.value?.label}
           styles={{

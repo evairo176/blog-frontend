@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
 
@@ -9,10 +8,6 @@ function Public() {
     { name: "Create", path: "/create-post", current: false },
     { name: "Posts", path: "/posts", current: false },
   ];
-
-  const className = (...classes) => {
-    return classes.filter(Boolean).join(" ");
-  };
 
   return (
     <Fragment>

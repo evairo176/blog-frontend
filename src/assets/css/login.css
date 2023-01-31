@@ -35,6 +35,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
+  text-align: center;
 }
 .btn-custom:active {
   background: #c5ecff;
@@ -79,6 +80,14 @@
   background: transparent;
   color: var(--white);
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--inti2);
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 18px;
 }
 .form-control:focus {
   color: var(--inti2) !important;
@@ -88,5 +97,6 @@
   box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 .form-control:focus-visible {
-  outline: 0 !important;
+  outline: none;
+  border: 1px solid var(--white);
 }

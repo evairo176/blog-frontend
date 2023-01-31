@@ -63,7 +63,7 @@ function LoginMenu() {
                       onChange={formik.handleChange("email")}
                       onBlur={formik.handleBlur("email")}
                       type="text"
-                      className={`form-control form-custom`}
+                      className={`form-custom`}
                     />
                     {formik.touched.email && (
                       <div className="error-custom">{formik.errors.email}</div>
@@ -78,7 +78,7 @@ function LoginMenu() {
                       onChange={formik.handleChange("password")}
                       onBlur={formik.handleBlur("password")}
                       type="password"
-                      className={`form-control form-custom`}
+                      className={`form-custom`}
                     />
                     {formik.touched.password && (
                       <div className="error-custom">

@@ -1,6 +1,5 @@
 import moment from "moment";
 import React from "react";
-import LoadingComponent from "./LoadingComponent";
 import LongText from "./LongText";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
@@ -17,7 +16,7 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
         return (
           <div key={key} className="box-content-blob">
             <div className="row">
-              <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12 mb-2">
+              <div className="col-8">
                 <div className="box-blog-post-dawd">
                   <div className="author-post">
                     <div className="img-author-dawd">
@@ -40,7 +39,7 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12 mb-2">
+              <div className="col-4">
                 <div
                   className="image-post"
                   style={{ backgroundImage: `url('${row.image}')` }}

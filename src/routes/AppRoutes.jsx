@@ -11,6 +11,7 @@ import CreatePostMenu from "../components/posts/CreatePostMenu";
 import LoginMenu from "../components/user/LoginMenu";
 import ProfileMenu from "../components/user/ProfileMenu";
 import RegisterMenu from "../components/user/RegisterMenu";
+import Post from "../components/posts/Post";
 
 function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ function AppRoutes() {
       <Routes>
         <>
           <Route path="/" element={<HomeMenu />} />
+          <Route path="/posts" element={<Post />} />
           <Route path="/register" element={<RegisterMenu />} />
           <Route path="/login" element={<LoginMenu />} />
 

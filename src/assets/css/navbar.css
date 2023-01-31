@@ -1,34 +1,6 @@
-/* .costum-profile-menu.nav-item.dropdown .dropdown-toggle::after {
-  display: none;
-}
-.navbar-custom {
-  background: var(--inti3);
-}
-.brand-custom {
-  color: #58c7f3;
-}
-.nav-link-custom {
-  color: white;
-}
-.nav-link-custom:hover {
-  color: #58c7f3;
-}
-.nav-link-custom:active {
-  color: #58c7f3;
-}
-.nav-link-custom:focus {
-  color: #58c7f3;
-}
-.nav-link-custom:focus-visible {
-  color: #58c7f3;
-}
-.active {
-  color: #58c7f3 !important;
-} */
-
 header {
   height: 70px;
-  background: var(--nav);
+  background: var(--inti);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,6 +9,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
   /* border-radius: 0 0 10px 10px; */
 }
 .profile {
@@ -50,11 +23,11 @@ header {
 .logo img {
   width: 100%;
 }
-nav .logo {
+.nav-content .logo {
   display: none;
 }
 
-nav ul {
+.nav-content ul {
   display: flex;
   margin-bottom: 0;
 }
@@ -62,7 +35,7 @@ li {
   display: flex;
   align-items: center;
 }
-nav ul li .nav-link-custom {
+.nav-content ul li .nav-link-custom {
   color: var(--font);
   margin: 0 2px;
   font-weight: 400;
@@ -71,13 +44,13 @@ nav ul li .nav-link-custom {
   border-radius: 30px;
   text-decoration: none;
 }
-nav ul li .nav-link-custom:focus-visible {
+.nav-content ul li .nav-link-custom:focus-visible {
   outline: 2px solid var(--inti2);
 }
-nav ul li .nav-link-custom.active {
+.nav-content ul li .nav-link-custom.active {
   color: var(--inti2);
 }
-nav ul li .nav-link-custom:hover {
+.nav-content ul li .nav-link-custom:hover {
   background: var(--inti4);
   color: var(--white);
 }
@@ -110,7 +83,7 @@ nav ul li .nav-link-custom:hover {
   .container-content-blog {
     padding: 0 20px;
   }
-  nav {
+  .nav-content {
     position: absolute;
     left: -300px;
     top: 0;
@@ -121,7 +94,7 @@ nav ul li .nav-link-custom:hover {
     transition: 0.2s;
     box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.05);
   }
-  #nav_check:checked ~ nav {
+  #nav_check:checked ~ .nav-content {
     left: 0;
   }
   #nav_check:checked ~ .logo {
@@ -133,26 +106,26 @@ nav ul li .nav-link-custom:hover {
   .profile img {
     width: 30px;
   }
-  nav .logo {
+  .nav-content .logo {
     display: flex;
     height: 70px;
     align-items: center;
     margin-left: 30px;
   }
-  nav ul {
+  .nav-content ul {
     padding: 0 20px;
     margin-top: 30px;
     display: block;
   }
-  nav ul li {
+  .nav-content ul li {
     width: 100%;
     display: block;
     align-items: center;
   }
-  nav ul li .costum-profile-menu {
+  .nav-content ul li .costum-profile-menu {
     display: none;
   }
-  nav ul li .nav-link-custom {
+  .nav-content ul li .nav-link-custom {
     display: block;
     margin-bottom: 5px;
     padding: 10px 15px;
