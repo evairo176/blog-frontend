@@ -17,7 +17,7 @@ function Public() {
             <img src={logo} alt="logo" />
           </div>
           <input type="checkbox" id="nav_check" hidden />
-          <nav>
+          <nav className="nav-content">
             <div className="logo">
               <img src={logo} alt="logo" />
             </div>

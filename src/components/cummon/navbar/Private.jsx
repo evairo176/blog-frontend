@@ -17,12 +17,6 @@ function Private({ isLogin }) {
     { name: "Change Your Password", path: "/update-password" },
   ];
 
-  //   const className = (...classes) => {
-  //     return classes.filter(Boolean).join(" ");
-  //   };
-
-  // logout
-
   return (
     <Fragment>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -43,7 +37,7 @@ function Private({ isLogin }) {
                   })
                 : ""}
             </Nav>
-            <Nav>
+            <Nav className="nav-content">
               <NavDropdown
                 className="costum-profile-menu"
                 title={
