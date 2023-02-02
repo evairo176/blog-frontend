@@ -16,7 +16,6 @@ function Private({ isLogin }) {
     { name: "Your Profile", path: "/profile" },
     { name: "Change Your Password", path: "/update-password" },
   ];
-
   return (
     <Fragment>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
