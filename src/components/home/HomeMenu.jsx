@@ -1,7 +1,12 @@
 import React from "react";
+import Navbar from "../cummon/Navbar";
 
 function HomeMenu() {
-  return <div>HomeMenu</div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
 
 export default HomeMenu;

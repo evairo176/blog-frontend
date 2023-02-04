@@ -202,9 +202,10 @@ const postSlices = createSlice({
     builder.addCase(addLikePostAction.fulfilled, (state, action) => {
       // console.log(action.payload.post);
       state.loading = false;
-      state.likes = action.payload;
+      state.likes = action.payload.post;
       state.appErr = undefined;
       state.serverErr = undefined;
+      toast.success(`${action.payload.message}`);
       // console.log(action.payload.message);
     });
     builder.addCase(addLikePostAction.rejected, (state, action) => {
@@ -223,9 +224,10 @@ const postSlices = createSlice({
     builder.addCase(addDisLikePostAction.fulfilled, (state, action) => {
       // console.log(action.payload.post);
       state.loading = false;
-      state.dislikes = action.payload;
+      state.dislikes = action.payload.post;
       state.appErr = undefined;
       state.serverErr = undefined;
+      toast.success(`${action.payload.message}`);
       // console.log(action.payload.message);
     });
     builder.addCase(addDisLikePostAction.rejected, (state, action) => {

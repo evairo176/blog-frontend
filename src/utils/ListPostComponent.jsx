@@ -55,7 +55,7 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                       onClick={() => dispatch(addLikePostAction(row._id))}
                       sx={
                         row.likes.some((e) => e.id === userAuth?._id)
-                          ? { color: "var(--inti2)" }
+                          ? { color: "var(--prim)" }
                           : {}
                       }
                     />
@@ -66,9 +66,10 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                   <div className="action-dw">
                     <ThumbDownAltIcon
                       onClick={() => dispatch(addDisLikePostAction(row._id))}
+                      disabled
                       sx={
                         row.disLikes.some((e) => e.id === userAuth?._id)
-                          ? { color: "var(--inti2)" }
+                          ? { color: "var(--prim)" }
                           : {}
                       }
                     />

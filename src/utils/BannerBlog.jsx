@@ -25,7 +25,6 @@ function BannerBlog() {
         scale={0.7}
         slidesToScroll={1}
         slidesToShow={1}
-        indicators={true}
         responsive={responsiveSettings}
       >
         <div className="each-slide-effect">
