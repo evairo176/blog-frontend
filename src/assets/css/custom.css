@@ -1,32 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
 
 @import "../css/responsive.css";
 
 * {
   margin: 0;
   padding: 0;
-  /* font-family: "Baloo 2", cursive; */
-  font-family: "Roboto", cursive;
+  font-family: "Merriweather", serif;
   box-sizing: border-box;
   list-style: none;
 }
 
 :root {
-  --inti: #252732;
-  --inti2: #bf95d9;
-  --nav: #252732;
-  --inti4: #bf95d9;
-  --font: #f8f8f2;
-  --pfont: #f8f8f2;
-  --ppfont: #e8f8f2;
-  --black: #000000;
-  --white: #fff;
-  --bg-btn: #506cba;
+  --primary: #1e1e1e;
+  --secunder: #292929;
+  --font: #ffff;
+  --pfont: #c6c6c6;
+  --prim: #7879f1;
 }
 /* body  */
 body {
   min-height: 100vh;
-  background: var(--inti);
+  background: var(--primary);
   overflow-x: hidden;
 
   /* color: var(--inti2); */

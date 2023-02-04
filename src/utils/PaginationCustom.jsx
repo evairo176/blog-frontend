@@ -13,6 +13,9 @@ function PaginationCustom({ limit, total, setPage, loading }) {
         className="pagination-custom"
         shape="rounded"
         sx={{ button: { color: "#ffffff" } }}
+        size="small"
+        hidePrevButton
+        hideNextButton
       />
     </div>
   );

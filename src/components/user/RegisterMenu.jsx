@@ -126,11 +126,11 @@ function RegisterMenu() {
                   </div>
                   <div className="form-group mb-2">
                     {loading ? (
-                      <button className="btn btn-custom">
+                      <button className="btn-custom">
                         <LoadingComponent />
                       </button>
                     ) : (
-                      <button className="btn btn-custom">Register Now</button>
+                      <button className="btn-custom">Register Now</button>
                     )}
                   </div>
                   <Link to="/login" className="jjdwd">

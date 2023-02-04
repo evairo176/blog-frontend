@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--white);
+    background: var(--font);
     padding: 5px 7px;
   }
   .action-dw svg {

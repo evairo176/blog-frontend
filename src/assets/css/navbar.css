@@ -1,6 +1,6 @@
 header {
   height: 70px;
-  background: var(--inti);
+  background: var(--primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,7 +18,7 @@ header {
 .logo {
   width: 120px;
   margin-right: 8px;
-  color: var(--white);
+  color: var(--font);
 }
 .logo img {
   width: 100%;
@@ -36,7 +36,7 @@ li {
   align-items: center;
 }
 .nav-content ul li .nav-link-custom {
-  color: var(--font);
+  color: var(--pfont);
   margin: 0 2px;
   font-weight: 400;
   padding: 8px 18px;
@@ -45,14 +45,14 @@ li {
   text-decoration: none;
 }
 .nav-content ul li .nav-link-custom:focus-visible {
-  outline: 2px solid var(--inti2);
+  outline: 2px solid var(--font);
 }
 .nav-content ul li .nav-link-custom.active {
-  color: var(--inti2);
+  color: var(--font);
 }
 .nav-content ul li .nav-link-custom:hover {
   background: var(--inti4);
-  color: var(--white);
+  color: var(--font);
 }
 .hambur {
   display: none;
@@ -64,7 +64,7 @@ li {
 }
 .hambur:hover {
   background: var(--inti4);
-  color: var(--white);
+  color: var(--font);
 }
 .hambur div {
   width: 30px;
@@ -90,7 +90,7 @@ li {
     z-index: 999;
     width: 280px;
     height: 100vh;
-    background-color: var(--inti);
+    background-color: var(--primary);
     transition: 0.2s;
     box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.05);
   }

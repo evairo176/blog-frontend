@@ -15,6 +15,7 @@ import Navbar from "../cummon/Navbar";
 import "../../assets/css/landingPage.css";
 import PaginationCustom from "../../utils/PaginationCustom";
 import SpeedDialComponent from "../../utils/SpeedDialComponent";
+import BannerBlog from "../../utils/BannerBlog";
 
 function Post() {
   // const [postList, setpostList] = useState({});
@@ -44,6 +45,7 @@ function Post() {
     <Fragment>
       <Navbar />
       <div className="container-content-blog">
+        <BannerBlog />
         <div className="row">
           <div className="col-xl-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
             <div className="box-content-blob">

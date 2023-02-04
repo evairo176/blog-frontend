@@ -1,3 +1,56 @@
+/* .header-blog-title-and-banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  border-radius: 12px;
+} */
+.each-slide-effect > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 350px;
+}
+
+/* .each-slide-effect span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+} */
+.box-banner {
+  display: block;
+  padding: 0px 75px;
+}
+.title-banner {
+  color: var(--font);
+  font-size: 40px;
+  font-weight: 700;
+}
+.action-banner {
+  display: flex;
+  align-items: center;
+}
+.action-banner span {
+  color: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+}
+.titik-bulet {
+  padding: 5px;
+  border-radius: 10px;
+  background: var(--font);
+  margin: 0 10px;
+}
+.btn-banner {
+  background: transparent;
+  display: flex;
+  padding: 10px 20px;
+  border: 1px solid #7879f1;
+  border-radius: 12px;
+  color: #7879f1;
+}
 .box-content-blob {
   padding: 15px 0;
 }
@@ -41,7 +94,7 @@
 .category-dad {
   padding: 4px;
   background: var(--bg-btn);
-  color: var(--white);
+  color: var(--font);
   border-radius: 10px;
 }
 .box-blog-post-dawd {
@@ -49,7 +102,7 @@
 }
 .p-kategory-daw {
   font-size: 18px;
-  color: var(--pfont);
+  color: var(--font);
   font-weight: 600;
 }
 label.form-check-label {
@@ -59,7 +112,7 @@ label.form-check-label {
 .btn-more-kdawd {
   margin: 6px 0;
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 .btn-more-kdawd:hover {
   background: var(--pfont);
@@ -71,33 +124,33 @@ label.form-check-label {
   padding: 7px 15px;
   border-radius: 19px;
   margin-right: 10px;
-  background: var(--white);
+  background: var(--font);
   color: var(--inti2);
 }
 .btn-pagination-dwadw:active {
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 .btn-pagination-dwadw:hover {
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 .btn-pagination-dwadw:focus {
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 .btn-pagination-dwadw:focus-visible {
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 .btn-pagination-dwadw:focus-visible {
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 
 .btn-pagination-dwadw.active-wdwd {
   background: var(--inti2);
-  color: var(--white);
+  color: var(--font);
 }
 .position-dial-dwd {
   position: fixed;
@@ -109,7 +162,7 @@ label.form-check-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--white);
+  background: var(--font);
   padding: 5px 20px;
 }
 .sum-action-dwad {
