@@ -7,7 +7,7 @@ function PaginationCustom({ limit, total, setPage, loading }) {
   return (
     <div>
       <Pagination
-        count={totalPages}
+        count={totalPages ? totalPages : 0}
         onChange={(event, value) => setPage(value)}
         color="secondary"
         className="pagination-custom"

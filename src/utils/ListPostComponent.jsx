@@ -5,7 +5,10 @@ import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useDispatch } from "react-redux";
-import { addLikePostAction } from "../redux/slices/posts/postSlices";
+import {
+  addDisLikePostAction,
+  addLikePostAction,
+} from "../redux/slices/posts/postSlices";
 
 function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
   const dispatch = useDispatch();
@@ -61,7 +64,14 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                     </span>
                   </div>
                   <div className="action-dw">
-                    <ThumbDownAltIcon />
+                    <ThumbDownAltIcon
+                      onClick={() => dispatch(addDisLikePostAction(row._id))}
+                      sx={
+                        row.disLikes.some((e) => e.id === userAuth?._id)
+                          ? { color: "var(--inti2)" }
+                          : {}
+                      }
+                    />
                     <span className="sum-action-dwad">
                       {row.disLikes.length > 0 ? row.disLikes.length : 0}
                     </span>

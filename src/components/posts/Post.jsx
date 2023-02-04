@@ -27,7 +27,7 @@ function Post() {
 
   const storeData = useSelector((store) => store?.posts);
   const storeDataUser = useSelector((store) => store?.users);
-  const { postList, loading, likes } = storeData;
+  const { postList, loading, likes, dislikes } = storeData;
   const { userAuth } = storeDataUser;
   useEffect(() => {
     dispatch(
@@ -38,7 +38,7 @@ function Post() {
         page: page,
       })
     );
-  }, [likes, dispatch, sort, page, filterCategory, search]);
+  }, [likes, dislikes, dispatch, sort, page, filterCategory, search]);
 
   return (
     <Fragment>
@@ -65,8 +65,8 @@ function Post() {
                 data={postList?.post ? postList?.post : []}
                 loading={loading}
                 page={page}
-                limit={postList?.limit ? postList?.limit : null}
-                total={postList?.total ? postList?.total : null}
+                limit={postList?.limit ? postList?.limit : 0}
+                total={postList?.total ? postList?.total : 0}
                 itemsPerPage={4}
                 userAuth={userAuth}
               />

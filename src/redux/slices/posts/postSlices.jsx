@@ -106,6 +106,41 @@ export const addLikePostAction = createAsyncThunk(
 );
 
 // ================================================================
+// add dislike post action
+// ================================================================
+
+export const addDisLikePostAction = createAsyncThunk(
+  "posts/dislikes",
+  async (values, { rejectWithValue, getState, dispatch }) => {
+    const user = getState()?.users;
+    const { userAuth } = user;
+    const token = userAuth?.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API_URL}/posts/dislikes`,
+        {
+          postId: values,
+        },
+        config
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 
@@ -173,6 +208,27 @@ const postSlices = createSlice({
       // console.log(action.payload.message);
     });
     builder.addCase(addLikePostAction.rejected, (state, action) => {
+      //   console.log(action.payload);
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
+    });
+
+    // add dislikes action
+    builder.addCase(addDisLikePostAction.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(addDisLikePostAction.fulfilled, (state, action) => {
+      // console.log(action.payload.post);
+      state.loading = false;
+      state.dislikes = action.payload;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      // console.log(action.payload.message);
+    });
+    builder.addCase(addDisLikePostAction.rejected, (state, action) => {
       //   console.log(action.payload);
       state.loading = false;
       state.appErr = action.payload.message;
