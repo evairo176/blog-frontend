@@ -18,7 +18,7 @@ function Private({ isLogin }) {
     { name: "Your Profile", path: "/profile" },
     { name: "Change Your Password", path: "/update-password" },
   ];
-
+// coment
   return (
     <Fragment>
       <Fragment>
