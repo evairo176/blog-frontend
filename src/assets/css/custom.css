@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
 
+@import "../css/darkMode.css";
 @import "../css/notif.css";
 @import "../css/landingPage.css";
 @import "../css/responsive.css";
@@ -12,13 +13,6 @@
   list-style: none;
 }
 
-:root {
-  --primary: #1e1e1e;
-  --secunder: #292929;
-  --font: #ffff;
-  --pfont: #c6c6c6;
-  --prim: #7879f1;
-}
 /* body  */
 body {
   min-height: 100vh;
