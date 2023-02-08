@@ -1,9 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
+import { ThemeContext, themes } from "../../../utils/ThemeSelector";
 
 function Public() {
   const { pathname } = useLocation();
+  const [darkMode, setDarkMode] = useState(true);
   const navigation_left = [
     { name: "Create", path: "/create-post", current: false },
     { name: "Posts", path: "/posts", current: false },
@@ -51,6 +53,24 @@ function Public() {
               </li>
             </ul>
           </nav>
+          <div className="themes-option">
+            <ThemeContext.Consumer>
+              {({ changeTheme, theme }) => (
+                <select
+                  className="filter-input-dawd"
+                  name=""
+                  id=""
+                  onChange={(e) => {
+                    changeTheme(e.target.value);
+                  }}
+                  value={theme}
+                >
+                  <option value="light-theme">LIGHT</option>
+                  <option value="dark-theme">DARK</option>
+                </select>
+              )}
+            </ThemeContext.Consumer>
+          </div>
           <label htmlFor="nav_check" className="hambur">
             <div></div>
             <div></div>

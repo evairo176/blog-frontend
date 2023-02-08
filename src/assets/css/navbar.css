@@ -1,6 +1,6 @@
 header {
   height: 70px;
-  background: var(--primary);
+  background: var(--secunder);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,11 +48,10 @@ li {
   outline: 2px solid var(--font);
 }
 .nav-content ul li .nav-link-custom.active {
-  color: var(--font);
+  color: var(--active-nav);
 }
 .nav-content ul li .nav-link-custom:hover {
-  background: var(--inti4);
-  color: var(--font);
+  color: var(--active-nav);
 }
 .hambur {
   display: none;

@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
 
-@import "../css/darkMode.css";
 @import "../css/notif.css";
 @import "../css/landingPage.css";
 @import "../css/responsive.css";
@@ -18,12 +17,28 @@ body {
   min-height: 100vh;
   background: var(--primary);
   overflow-x: hidden;
-
-  /* color: var(--inti2); */
 }
 /* img {
   width: 100%;
 } */
+.light-theme {
+  --primary: #f2f2f2;
+  --secunder: #ffffff;
+  --font: #1f2937;
+  --font-banner: #ffff;
+  --pfont: #63296d;
+  --prim: #7879f1;
+  --active-nav: #f000b8;
+}
+.dark-theme {
+  --primary: #1e1e1e;
+  --secunder: #292929;
+  --font: #ffff;
+  --font-banner: #ffff;
+  --pfont: #c6c6c6;
+  --prim: #7879f1;
+  --active-nav: #f000b8;
+}
 .btn:focus {
   box-shadow: none !important;
 }

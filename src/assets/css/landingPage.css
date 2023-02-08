@@ -24,7 +24,7 @@
   padding: 0px 75px;
 }
 .title-banner {
-  color: var(--font);
+  color: var(--font-banner);
   font-size: 40px;
   font-weight: 700;
 }
@@ -63,20 +63,22 @@
   justify-content: space-between;
 }
 .search-input-section {
+  background: var(--primary);
   padding: 10px 20px;
   border-radius: 12px;
   border: transparent;
-  color: var(--primary);
+  color: var(--pfont);
 }
 .filter-input-dawd {
+  background: var(--primary);
   padding: 10px 20px;
   border-radius: 12px;
   border: transparent;
-  color: var(--primary);
+  color: var(--pfont);
   margin-right: 10px;
 }
 .btn-filter {
-  background: var(--prim);
+  background: var(--primary);
   color: var(--font);
   width: 100%;
   font-size: 14px;
@@ -211,7 +213,8 @@ label.form-check-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--font);
+  background: var(--font-banner);
+  color: var(--pfont);
   padding: 5px 20px;
 }
 .sum-action-dwad {
