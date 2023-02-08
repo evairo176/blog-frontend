@@ -55,7 +55,7 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                       onClick={() => dispatch(addLikePostAction(row._id))}
                       sx={
                         row.likes.some((e) => e.id === userAuth?._id)
-                          ? { color: "var(--prim)" }
+                          ? { color: "var(--font)" }
                           : {}
                       }
                     />
@@ -69,7 +69,7 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
                       disabled
                       sx={
                         row.disLikes.some((e) => e.id === userAuth?._id)
-                          ? { color: "var(--prim)" }
+                          ? { color: "var(--font)" }
                           : {}
                       }
                     />

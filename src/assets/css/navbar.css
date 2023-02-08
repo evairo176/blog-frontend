@@ -43,6 +43,7 @@ li {
   transition: 0.2s;
   border-radius: 30px;
   text-decoration: none;
+  font-size: 13px;
 }
 .nav-content ul li .nav-link-custom:focus-visible {
   outline: 2px solid var(--font);

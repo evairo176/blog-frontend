@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { logoutUserAction } from "../../../redux/slices/users/usersSlices";
 import logo from "../../../assets/images/logo.png";
+import { ThemeContext } from "../../../utils/ThemeSelector";
 
 function Admin({ isLogin }) {
   const dispatch = useDispatch();
@@ -123,6 +124,24 @@ function Admin({ isLogin }) {
               </li>
             </ul>
           </nav>
+          <div className="themes-option">
+            <ThemeContext.Consumer>
+              {({ changeTheme, theme }) => (
+                <select
+                  className="theme-input-dawd"
+                  name=""
+                  id=""
+                  onChange={(e) => {
+                    changeTheme(e.target.value);
+                  }}
+                  value={theme}
+                >
+                  <option value="light-theme">LIGHT</option>
+                  <option value="dark-theme">DARK</option>
+                </select>
+              )}
+            </ThemeContext.Consumer>
+          </div>
           <label htmlFor="nav_check" className="hambur">
             <div></div>
             <div></div>

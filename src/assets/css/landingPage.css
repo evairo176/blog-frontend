@@ -77,6 +77,15 @@
   color: var(--pfont);
   margin-right: 10px;
 }
+.theme-input-dawd {
+  background: var(--primary);
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: transparent;
+  color: var(--pfont);
+  margin-right: 10px;
+  font-size: 13px;
+}
 .btn-filter {
   background: var(--primary);
   color: var(--font);
@@ -212,7 +221,7 @@ label.form-check-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--font-banner);
+  background: var(--primary);
   color: var(--pfont);
   padding: 5px 20px;
 }
