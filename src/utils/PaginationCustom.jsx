@@ -12,7 +12,7 @@ function PaginationCustom({ limit, total, setPage, loading }) {
         color="secondary"
         className="pagination-custom"
         shape="rounded"
-        sx={{ button: { color: "#ffffff" } }}
+        sx={{ button: { color: "var(--font)" } }}
         size="small"
         hidePrevButton
         hideNextButton

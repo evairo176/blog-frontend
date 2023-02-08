@@ -175,8 +175,7 @@ label.form-check-label {
   padding: 7px 15px;
   border-radius: 19px;
   margin-right: 10px;
-  background: var(--font);
-  color: var(--inti2);
+  color: var(--pfont);
 }
 .btn-pagination-dwadw:active {
   background: var(--inti2);
@@ -201,7 +200,7 @@ label.form-check-label {
 
 .btn-pagination-dwadw.active-wdwd {
   background: var(--inti2);
-  color: var(--font);
+  color: var(--active-nav);
 }
 .position-dial-dwd {
   position: fixed;
