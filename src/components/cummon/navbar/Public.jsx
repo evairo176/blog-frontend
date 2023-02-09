@@ -20,6 +20,10 @@ function Public() {
       id: "light-theme",
       title: "Light",
     },
+    {
+      id: "hallowen-theme",
+      title: "Hallowen",
+    },
   ];
 
   return (
