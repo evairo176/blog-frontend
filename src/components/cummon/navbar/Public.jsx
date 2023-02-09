@@ -64,8 +64,9 @@ function Public() {
                   }}
                   value={theme}
                 >
-                  <option value="light-theme">LIGHT</option>
-                  <option value="dark-theme">DARK</option>
+                  <option value="light-theme">Light</option>
+                  <option value="dark-theme">Dark</option>
+                  <option value="hallowen-theme">Hallowen</option>
                 </select>
               )}
             </ThemeContext.Consumer>

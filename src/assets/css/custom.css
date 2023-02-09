@@ -39,6 +39,15 @@ body {
   --prim: #7879f1;
   --active-nav: #f000b8;
 }
+.hallowen-theme {
+  --primary: #1f1f1f;
+  --secunder: #1f1f1f;
+  --font: #d4d4d4;
+  --font-banner: #d4d4d4;
+  --pfont: #c6c6c6;
+  --prim: rgb(43 50 69);
+  --active-nav: #6d3a9c;
+}
 .btn:focus {
   box-shadow: none !important;
 }
