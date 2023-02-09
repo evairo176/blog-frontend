@@ -10,7 +10,6 @@ function ThemeContextWrapper(props) {
 
   useEffect(() => {
     document.body.className = `${theme}`;
-    console.log(theme);
   }, [theme]);
   return (
     <ThemeContext.Provider value={{ theme: theme, changeTheme: changeTheme }}>

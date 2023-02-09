@@ -13,8 +13,6 @@ import Navbar from "../cummon/Navbar";
 import PaginationCustom from "../../utils/PaginationCustom";
 import SpeedDialComponent from "../../utils/SpeedDialComponent";
 import BannerBlog from "../../utils/BannerBlog";
-import { ThemeContext, themes } from "../../utils/ThemeSelector";
-import { Button } from "react-bootstrap";
 
 function Post() {
   // const [postList, setpostList] = useState({});

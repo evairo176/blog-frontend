@@ -1,6 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../../assets/images/logo.png";
+import CategoryWithNoError from "../../../utils/CategoryWithNoError";
 import { ThemeContext } from "../../../utils/ThemeSelector";
 
 function Public() {
@@ -8,6 +9,17 @@ function Public() {
   const navigation_left = [
     { name: "Create", path: "/create-post", current: false },
     { name: "Posts", path: "/posts", current: false },
+  ];
+
+  const dataThemes = [
+    {
+      id: "dark-theme",
+      title: "Dark",
+    },
+    {
+      id: "light-theme",
+      title: "Light",
+    },
   ];
 
   return (
@@ -55,19 +67,13 @@ function Public() {
           <div className="themes-option">
             <ThemeContext.Consumer>
               {({ changeTheme, theme }) => (
-                <select
-                  className="theme-input-dawd"
-                  name=""
-                  id=""
-                  onChange={(e) => {
-                    changeTheme(e.target.value);
-                  }}
+                <CategoryWithNoError
+                  onChange={(e) => changeTheme(e)}
                   value={theme}
-                >
-                  <option value="light-theme">Light</option>
-                  <option value="dark-theme">Dark</option>
-                  <option value="hallowen-theme">Hallowen</option>
-                </select>
+                  id="themes"
+                  data={dataThemes}
+                  placeholder="Themes"
+                />
               )}
             </ThemeContext.Consumer>
           </div>
