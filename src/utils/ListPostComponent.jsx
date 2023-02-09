@@ -11,7 +11,15 @@ import {
 } from "../redux/slices/posts/postSlices";
 import { Skeleton } from "@mui/material";
 
-function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
+function ListPostComponent({
+  data,
+  loading,
+  page,
+  limit,
+  total,
+  userAuth,
+  search,
+}) {
   const dispatch = useDispatch();
 
   return (
@@ -278,12 +286,19 @@ function ListPostComponent({ data, loading, page, limit, total, userAuth }) {
         })
       ) : (
         <div className="box-content-blob" style={{ borderBottom: "none" }}>
-          <div
-            className="title-post"
-            style={{ fontSize: "15px", textAlign: "center" }}
-          >
-            Maaf Data Yang anda cari tidak ditemukan, Silahkan coba lagi cari
-            dengan data yang baru
+          <div className="title-post">
+            <b style={{ fontSize: "15px" }}>
+              Maaf, kami tidak menemukan hasil untuk {search}
+            </b>
+            <br />
+            <b style={{ fontSize: "13px" }}>
+              Coba sesuaikan pencarian Anda. Berikut ini beberapa ide:
+            </b>
+            <ul style={{ fontSize: "12px", listStyle: "auto !important" }}>
+              <li>1. Pastikan ejaan semua kata sudah benar</li>
+              <li>2. Gunakan istilah pencarian lainnya</li>
+              <li>3. Gunakan istilah pencarian yang lebih umum</li>
+            </ul>
           </div>
         </div>
       )}

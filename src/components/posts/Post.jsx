@@ -75,6 +75,7 @@ function Post() {
                   total={postList?.total ? postList?.total : 0}
                   itemsPerPage={4}
                   userAuth={userAuth}
+                  search={search}
                 />
               </div>
               <div className="mt-2">
