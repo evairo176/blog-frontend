@@ -174,7 +174,13 @@ const postSlices = createSlice({
 
     // fetch all post
     builder.addCase(fetchAllPostAction.pending, (state, action) => {
-      state.loading = true;
+      if (state.loadingLikes || state.loadingDisLikes) {
+        state.loading = false;
+        state.loadingLikes = false;
+        state.loadingDisLikes = false;
+      } else {
+        state.loading = true;
+      }
       state.appErr = undefined;
       state.serverErr = undefined;
     });
@@ -195,13 +201,12 @@ const postSlices = createSlice({
 
     // add likes action
     builder.addCase(addLikePostAction.pending, (state, action) => {
-      state.loading = true;
+      state.loadingLikes = true;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
     builder.addCase(addLikePostAction.fulfilled, (state, action) => {
       // console.log(action.payload.post);
-      state.loading = false;
       state.likes = action.payload.post;
       state.appErr = undefined;
       state.serverErr = undefined;
@@ -210,20 +215,18 @@ const postSlices = createSlice({
     });
     builder.addCase(addLikePostAction.rejected, (state, action) => {
       //   console.log(action.payload);
-      state.loading = false;
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
     });
 
     // add dislikes action
     builder.addCase(addDisLikePostAction.pending, (state, action) => {
-      state.loading = true;
+      state.loadingDisLikes = true;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
     builder.addCase(addDisLikePostAction.fulfilled, (state, action) => {
       // console.log(action.payload.post);
-      state.loading = false;
       state.dislikes = action.payload.post;
       state.appErr = undefined;
       state.serverErr = undefined;
@@ -232,7 +235,6 @@ const postSlices = createSlice({
     });
     builder.addCase(addDisLikePostAction.rejected, (state, action) => {
       //   console.log(action.payload);
-      state.loading = false;
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
     });

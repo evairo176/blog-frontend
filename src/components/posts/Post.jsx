@@ -25,7 +25,8 @@ function Post() {
 
   const storeData = useSelector((store) => store?.posts);
   const storeDataUser = useSelector((store) => store?.users);
-  const { postList, loading, likes, dislikes } = storeData;
+  const { loading, postList, likes, dislikes } = storeData;
+
   const { userAuth } = storeDataUser;
   useEffect(() => {
     dispatch(

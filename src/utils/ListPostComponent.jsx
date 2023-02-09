@@ -36,20 +36,20 @@ function ListPostComponent({
                       <Skeleton variant="circular" width={40} height={40} />
                     </div>
                     <div className="ml-2 name-dw">
-                      <Skeleton width={100} height={22} circle={true} />
+                      <Skeleton width={100} height={22} />
                     </div>
                   </div>
                   <div className="title-post">
-                    <Skeleton width="130px" height={22} circle={true} />
+                    <Skeleton width="130px" height={22} />
                   </div>
                   <div className="description-post">
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
                   </div>
                   <div className="time-detail-dwd">
-                    <Skeleton width={160} height={22} circle={true} />
+                    <Skeleton width={160} height={22} />
                   </div>
                 </div>
               </div>
@@ -72,20 +72,20 @@ function ListPostComponent({
                       <Skeleton variant="circular" width={40} height={40} />
                     </div>
                     <div className="ml-2 name-dw">
-                      <Skeleton width={100} height={22} circle={true} />
+                      <Skeleton width={100} height={22} />
                     </div>
                   </div>
                   <div className="title-post">
-                    <Skeleton width="130px" height={22} circle={true} />
+                    <Skeleton width="130px" height={22} />
                   </div>
                   <div className="description-post">
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
                   </div>
                   <div className="time-detail-dwd">
-                    <Skeleton width={160} height={22} circle={true} />
+                    <Skeleton width={160} height={22} />
                   </div>
                 </div>
               </div>
@@ -108,20 +108,20 @@ function ListPostComponent({
                       <Skeleton variant="circular" width={40} height={40} />
                     </div>
                     <div className="ml-2 name-dw">
-                      <Skeleton width={100} height={22} circle={true} />
+                      <Skeleton width={100} height={22} />
                     </div>
                   </div>
                   <div className="title-post">
-                    <Skeleton width="130px" height={22} circle={true} />
+                    <Skeleton width="130px" height={22} />
                   </div>
                   <div className="description-post">
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
                   </div>
                   <div className="time-detail-dwd">
-                    <Skeleton width={160} height={22} circle={true} />
+                    <Skeleton width={160} height={22} />
                   </div>
                 </div>
               </div>
@@ -144,20 +144,20 @@ function ListPostComponent({
                       <Skeleton variant="circular" width={40} height={40} />
                     </div>
                     <div className="ml-2 name-dw">
-                      <Skeleton width={100} height={22} circle={true} />
+                      <Skeleton width={100} height={22} />
                     </div>
                   </div>
                   <div className="title-post">
-                    <Skeleton width="130px" height={22} circle={true} />
+                    <Skeleton width="130px" height={22} />
                   </div>
                   <div className="description-post">
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
                   </div>
                   <div className="time-detail-dwd">
-                    <Skeleton width={160} height={22} circle={true} />
+                    <Skeleton width={160} height={22} />
                   </div>
                 </div>
               </div>
@@ -180,20 +180,20 @@ function ListPostComponent({
                       <Skeleton variant="circular" width={40} height={40} />
                     </div>
                     <div className="ml-2 name-dw">
-                      <Skeleton width={100} height={22} circle={true} />
+                      <Skeleton width={100} height={22} />
                     </div>
                   </div>
                   <div className="title-post">
-                    <Skeleton width="130px" height={22} circle={true} />
+                    <Skeleton width="130px" height={22} />
                   </div>
                   <div className="description-post">
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
-                    <Skeleton width="100%" height={22} circle={true} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
+                    <Skeleton width="100%" height={22} />
                   </div>
                   <div className="time-detail-dwd">
-                    <Skeleton width={160} height={22} circle={true} />
+                    <Skeleton width={160} height={22} />
                   </div>
                 </div>
               </div>
