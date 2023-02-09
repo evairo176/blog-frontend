@@ -87,7 +87,7 @@ function Admin({ isLogin }) {
                     })
                   : ""}
               </li>
-              {/* <li>
+              <li>
                 <NavDropdown
                   className="costum-profile-menu"
                   title={
@@ -121,7 +121,7 @@ function Admin({ isLogin }) {
                     Logout
                   </div>
                 </NavDropdown>
-              </li> */}
+              </li>
             </ul>
           </nav>
           <div className="themes-option">

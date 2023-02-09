@@ -33,14 +33,14 @@
   align-items: center;
 }
 .action-banner span {
-  color: var(--font);
+  color: var(--font-banner);
   font-size: 16px;
   font-weight: 400;
 }
 .titik-bulet {
   padding: 5px;
   border-radius: 10px;
-  background: var(--font);
+  background: var(--font-banner);
   margin: 0 10px;
 }
 .btn-banner {
@@ -130,7 +130,7 @@
 
 .title-post {
   font-size: 30px;
-  line-height: 22px;
+  line-height: 35px;
   margin-top: 10px;
   margin-bottom: 10px;
   font-weight: 700;
