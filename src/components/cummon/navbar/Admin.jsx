@@ -26,7 +26,7 @@ function Admin({ isLogin }) {
     <Fragment>
       <div className="container-blog">
         <header>
-          <div className="profile">
+          {/* <div className="profile">
             <NavDropdown
               className="costum-profile-menu"
               title={
@@ -60,7 +60,7 @@ function Admin({ isLogin }) {
                 Logout
               </div>
             </NavDropdown>
-          </div>
+          </div> */}
           <div className="logo">
             <img src={logo} alt="logo" />
           </div>
@@ -87,7 +87,7 @@ function Admin({ isLogin }) {
                     })
                   : ""}
               </li>
-              <li>
+              {/* <li>
                 <NavDropdown
                   className="costum-profile-menu"
                   title={
@@ -121,7 +121,7 @@ function Admin({ isLogin }) {
                     Logout
                   </div>
                 </NavDropdown>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <div className="themes-option">

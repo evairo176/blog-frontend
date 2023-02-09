@@ -29,6 +29,9 @@ function CategoryWithNoError(props) {
             control: (baseStyles, state) => ({
               ...baseStyles,
               borderColor: "#cbcbcb",
+              background: "var(--secunder)",
+              color: "var(--font)",
+              cursor: "pointer",
             }),
           }}
         />
