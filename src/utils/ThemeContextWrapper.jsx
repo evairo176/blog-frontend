@@ -7,7 +7,7 @@ function ThemeContextWrapper(props) {
   function changeTheme(theme) {
     setTheme(theme);
   }
-
+  //cek
   useEffect(() => {
     document.body.className = `${theme}`;
   }, [theme]);
