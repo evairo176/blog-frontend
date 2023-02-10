@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
 import LoadingComponent from "../../utils/LoadingComponent";
 import Navbar from "../cummon/Navbar";
-import DateFormatter from "../../utils/DateFormatter";
 function CategoryListMenu() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -68,9 +67,7 @@ function CategoryListMenu() {
                               </div>
                             </td>
                             <td>{row.title}</td>
-                            <td>
-                              <DateFormatter date={row.createdAt} />
-                            </td>
+                            <td>{row.createdAt}</td>
                             <td>
                               <Link
                                 to={`/update-category/${row._id}`}
