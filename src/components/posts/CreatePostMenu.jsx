@@ -10,6 +10,7 @@ import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import Navbar from "../cummon/Navbar";
 import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
+import Tiptap from "../../utils/Tiptap";
 
 //
 const StyleDropzone = styled.div`
@@ -76,14 +77,14 @@ function CreatePostMenu() {
       image: "",
     },
     onSubmit: (values) => {
-      //   console.log(values);
-      const data = {
-        title: values?.title,
-        category: values?.category?.label,
-        description: values?.description,
-        image: values?.image,
-      };
-      dispatch(createPostAction(data));
+      console.log(values);
+      // const data = {
+      //   title: values?.title,
+      //   category: values?.category?.label,
+      //   description: values?.description,
+      //   image: values?.image,
+      // };
+      // dispatch(createPostAction(data));
     },
     validationSchema: formSchema,
   });
@@ -169,6 +170,7 @@ function CreatePostMenu() {
                 </div>
               )}
             </div>
+
             <div className="form-group mb-3">
               <label htmlFor="category">Category</label>
               <CategoryDropdown
@@ -184,16 +186,15 @@ function CreatePostMenu() {
             </div>
             <div className="form-group mb-3">
               <label htmlFor="description">Description</label>
-              <textarea
-                value={formik.values.description}
+
+              <Tiptap
                 onChange={formik.handleChange("description")}
                 onBlur={formik.handleBlur("description")}
-                placeholder="Description"
-                type="text"
-                className={`form-custom ${
-                  formik.errors.description && "is-invalid"
-                }`}
-              ></textarea>
+                value={formik.values.description}
+                error={formik.errors.description}
+                touched={formik.touched.description}
+              />
+
               {formik.touched.description && (
                 <div
                   id="validationServer03Feedback"
