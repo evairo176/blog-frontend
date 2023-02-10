@@ -52,7 +52,9 @@ function PostDetail() {
             />
           </div>
           <div className="post-detail-description">
-            {postDetail?.description}
+            <div
+              dangerouslySetInnerHTML={{ __html: postDetail?.description }}
+            ></div>
           </div>
         </section>
       </div>

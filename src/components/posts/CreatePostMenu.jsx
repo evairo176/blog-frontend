@@ -10,7 +10,7 @@ import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import Navbar from "../cummon/Navbar";
 import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
-import Tiptap from "../../utils/Tiptap";
+import Quill from "../../utils/Quill";
 
 //
 const StyleDropzone = styled.div`
@@ -77,14 +77,14 @@ function CreatePostMenu() {
       image: "",
     },
     onSubmit: (values) => {
-      console.log(values);
-      // const data = {
-      //   title: values?.title,
-      //   category: values?.category?.label,
-      //   description: values?.description,
-      //   image: values?.image,
-      // };
-      // dispatch(createPostAction(data));
+      const data = {
+        title: values?.title,
+        category: values?.category?.label,
+        description: values?.description,
+        image: values?.image,
+      };
+      // console.log(values);
+      dispatch(createPostAction(data));
     },
     validationSchema: formSchema,
   });
@@ -186,22 +186,26 @@ function CreatePostMenu() {
             </div>
             <div className="form-group mb-3">
               <label htmlFor="description">Description</label>
-
-              <Tiptap
-                onChange={formik.handleChange("description")}
-                onBlur={formik.handleBlur("description")}
+              <Quill
+                onChange={formik.setFieldValue}
+                onBlur={formik.setFieldTouched}
                 value={formik.values.description}
-                error={formik.errors.description}
-                touched={formik.touched.description}
+                error={formik.errors.category}
+                touched={formik.touched.category}
+                id="description"
               />
-
+              {/* <textarea
+                
+                
+                
+                placeholder="Description"
+                type="text"
+                className={`form-custom ${
+                  formik.errors.description && "is-invalid"
+                }`}
+              ></textarea> */}
               {formik.touched.description && (
-                <div
-                  id="validationServer03Feedback"
-                  className="invalid-feedback"
-                >
-                  {formik.errors.description}
-                </div>
+                <div className="text-danger">{formik.errors.description}</div>
               )}
             </div>
             <div className="form-group mb-3">
