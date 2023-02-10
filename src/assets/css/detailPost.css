@@ -25,3 +25,23 @@
   line-height: 57px;
   color: var(--font);
 }
+.image-posts-details {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.image-posts-details img {
+  max-width: 750px;
+}
+.name-and-foto span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--font);
+  line-height: 20px;
+  margin-left: 20px;
+}
+.post-detail-description {
+  font-size: 20px;
+  color: var(--font);
+  text-align: justify;
+}
