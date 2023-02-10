@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { logoutUserAction } from "../../../redux/slices/users/usersSlices";
 import logo from "../../../assets/images/logo.png";
 import { ThemeContext } from "../../../utils/ThemeSelector";
+import CategoryWithNoError from "../../../utils/CategoryWithNoError";
 
 function Admin({ isLogin }) {
   const dispatch = useDispatch();
@@ -20,6 +21,21 @@ function Admin({ isLogin }) {
   const navigation_right = [
     { name: "Your Profile", path: "/profile" },
     { name: "Change Your Password", path: "/update-password" },
+  ];
+
+  const dataThemes = [
+    {
+      id: "dark-theme",
+      title: "Dark",
+    },
+    {
+      id: "light-theme",
+      title: "Light",
+    },
+    {
+      id: "hallowen-theme",
+      title: "Hallowen",
+    },
   ];
 
   return (
@@ -127,19 +143,13 @@ function Admin({ isLogin }) {
           <div className="themes-option">
             <ThemeContext.Consumer>
               {({ changeTheme, theme }) => (
-                <select
-                  className="theme-input-dawd"
-                  name=""
-                  id=""
-                  onChange={(e) => {
-                    changeTheme(e.target.value);
-                  }}
+                <CategoryWithNoError
+                  onChange={(e) => changeTheme(e)}
                   value={theme}
-                >
-                  <option value="light-theme">Light</option>
-                  <option value="dark-theme">Dark</option>
-                  <option value="hallowen-theme">Hallowen</option>
-                </select>
+                  id="themes"
+                  data={dataThemes}
+                  placeholder="Themes"
+                />
               )}
             </ThemeContext.Consumer>
           </div>

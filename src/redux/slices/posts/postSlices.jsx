@@ -141,6 +141,32 @@ export const addDisLikePostAction = createAsyncThunk(
 );
 
 // ================================================================
+// add dislike post action
+// ================================================================
+
+export const fetchPostById = createAsyncThunk(
+  "posts/detail-by-id",
+  async (values, { rejectWithValue, getState, dispatch }) => {
+    try {
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API_URL}/posts/dislikes`,
+        {
+          postId: values,
+        },
+        config
+      );
+      console.log(data);
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 

@@ -10,6 +10,7 @@ import {
   addLikePostAction,
 } from "../redux/slices/posts/postSlices";
 import { Skeleton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function ListPostComponent({
   data,
@@ -21,6 +22,7 @@ function ListPostComponent({
   search,
 }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -226,7 +228,13 @@ function ListPostComponent({
                       </div>
                       <div className="name-dw">{`${row.user.firstName} ${row.user.lastName}`}</div>
                     </div>
-                    <div className="title-post">{row.title}</div>
+                    <div
+                      className="title-post"
+                      onClick={() => navigate(`/posts/${row._id}`)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {row.title}
+                    </div>
                     <div className="description-post">
                       <LongText content={row.description} limit={300} />
                     </div>

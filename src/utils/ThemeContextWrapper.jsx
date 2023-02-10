@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ThemeContext } from "./ThemeSelector";
 
 function ThemeContextWrapper(props) {
-  const [theme, setTheme] = useState("dark-theme");
+  const [theme, setTheme] = useState("light-theme");
 
   function changeTheme(theme) {
     setTheme(theme);
