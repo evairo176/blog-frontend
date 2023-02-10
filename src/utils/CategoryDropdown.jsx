@@ -24,6 +24,7 @@ function CategoryDropdown(props) {
         <div>Category is Loading...</div>
       ) : (
         <Select
+          classNamePrefix="filter"
           onChange={handleChange}
           onBlur={handleBlur}
           id={props?.id}
@@ -32,9 +33,20 @@ function CategoryDropdown(props) {
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,
+              background: "var(--secunder)",
               borderColor: props?.error ? "red" : "#cbcbcb",
             }),
           }}
+          theme={(theme) => ({
+            ...theme,
+            colors: {
+              ...theme.colors,
+              text: "blue",
+              primary25: "pink",
+              primary: "black",
+              neutral80: "var(--font)",
+            },
+          })}
         />
       )}
       {props?.error && <div className="text-danger">{props?.error}</div>}

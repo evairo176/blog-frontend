@@ -1,11 +1,9 @@
 import React from "react";
 import Navbar from "../cummon/Navbar";
-import banner from "../../assets/images/banner.png";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPostById } from "../../redux/slices/posts/postSlices";
-import moment from "moment";
 import Moment from "react-moment";
 
 function PostDetail() {
@@ -13,7 +11,7 @@ function PostDetail() {
   const dispatch = useDispatch();
 
   const storeData = useSelector((store) => store?.posts);
-  const { postDetail, loading } = storeData;
+  const { postDetail } = storeData;
 
   useEffect(() => {
     dispatch(fetchPostById(params?.id));

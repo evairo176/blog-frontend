@@ -41,7 +41,8 @@
   margin-left: 20px;
 }
 .post-detail-description {
+  margin-top: 30px;
   font-size: 20px;
   color: var(--font);
-  text-align: justify;
+  padding: 20px;
 }

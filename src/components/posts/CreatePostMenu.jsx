@@ -147,147 +147,96 @@ function CreatePostMenu() {
   return (
     <Fragment>
       <Navbar />
-      <div className="center">
-        <div className="card ">
-          <div className="card-header">Create Post</div>
-          <div className="card-body">
-            <form onSubmit={formik.handleSubmit} action="">
-              <div className="form-group mb-3">
-                <label htmlFor="title">Title</label>
-                <input
-                  value={formik.values.title}
-                  onChange={formik.handleChange("title")}
-                  onBlur={formik.handleBlur("title")}
-                  placeholder="Post"
-                  type="text"
-                  className={`form-control form-layanan ${
-                    formik.errors.title && "is-invalid"
-                  }`}
-                />
-                {formik.touched.title && (
-                  <div
-                    id="validationServer03Feedback"
-                    className="invalid-feedback"
-                  >
-                    {formik.errors.title}
-                  </div>
-                )}
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="category">Category</label>
-                <CategoryDropdown
-                  onChange={formik.setFieldValue}
-                  onBlur={formik.setFieldTouched}
-                  value={formik.values.category?.label}
-                  error={formik.errors.category}
-                  touched={formik.touched.category}
-                  id="category"
-                  data={categoryList}
-                  loading={loadingCategory}
-                />
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="description">Description</label>
-                <textarea
-                  value={formik.values.description}
-                  onChange={formik.handleChange("description")}
-                  onBlur={formik.handleBlur("description")}
-                  placeholder="Description"
-                  type="text"
-                  className={`form-control form-layanan ${
-                    formik.errors.description && "is-invalid"
-                  }`}
-                ></textarea>
-                {formik.touched.description && (
-                  <div
-                    id="validationServer03Feedback"
-                    className="invalid-feedback"
-                  >
-                    {formik.errors.description}
-                  </div>
-                )}
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="description">Image</label>
-                <div className="abc">
-                  <StyleDropzone
-                    style={formik.errors.image && { border: "1px solid red" }}
-                    {...getRootProps({ className: "dropzone" })}
-                  >
-                    <input {...getInputProps()} />
-
-                    <p style={pj}>
-                      Drag & drop some files here, or click to select files
-                    </p>
-                  </StyleDropzone>
-                  {formik.touched.image && (
-                    <div
-                      id="validationServer03Feedback"
-                      className="text-danger"
-                    >
-                      {formik.errors.image}
-                    </div>
-                  )}
-
-                  <aside style={thumbsContainer}>{thumbs}</aside>
-                </div>
-
-                {/* <Dropzone
-                  multiple={false}
-                  onDrop={(acceptedFiles) => {
-                    formik.setFieldValue("image", acceptedFiles[0]);
-                  }}
-                  accept="image/jpeg,image/png"
-                  onBlur={formik.handleBlur("image")}
+      <div className="container-content-blog">
+        <div className="card-form">
+          <form onSubmit={formik.handleSubmit} action="">
+            <div className="form-group mb-3">
+              <label htmlFor="title">Title</label>
+              <input
+                value={formik.values.title}
+                onChange={formik.handleChange("title")}
+                onBlur={formik.handleBlur("title")}
+                placeholder="Post"
+                type="text"
+                className={`form-custom ${formik.errors.title && "is-invalid"}`}
+              />
+              {formik.touched.title && (
+                <div
+                  id="validationServer03Feedback"
+                  className="invalid-feedback"
                 >
-                  {({ getRootProps, getInputProps }) => {
-                    return (
-                      <div>
-                        <div
-                          {...getRootProps({
-                            className: "dropzone",
-                            onDrop: (event) => {
-                              event.stopPropagation();
-                            },
-                          })}
-                        >
-                          <input
-                            {...getInputProps()}
-                            className={`form-control form-layanan ${
-                              formik.errors.image && "is-invalid"
-                            }`}
-                          />
-                          <p className="text-secondary">
-                            {" "}
-                            Click here to select image
-                          </p>
-                          {formik.touched.image && (
-                            <div
-                              id="validationServer03Feedback"
-                              className="invalid-feedback"
-                            >
-                              {formik.errors.image}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  }}
-                </Dropzone> */}
-              </div>
-              <div className="form-group mt-3">
-                {loading ? (
-                  <button disabled className="btn btn-primary">
-                    <LoadingComponent />
-                  </button>
-                ) : (
-                  <button type="submit" className="btn btn-primary">
-                    Save
-                  </button>
+                  {formik.errors.title}
+                </div>
+              )}
+            </div>
+            <div className="form-group mb-3">
+              <label htmlFor="category">Category</label>
+              <CategoryDropdown
+                onChange={formik.setFieldValue}
+                onBlur={formik.setFieldTouched}
+                value={formik.values.category?.label}
+                error={formik.errors.category}
+                touched={formik.touched.category}
+                id="category"
+                data={categoryList}
+                loading={loadingCategory}
+              />
+            </div>
+            <div className="form-group mb-3">
+              <label htmlFor="description">Description</label>
+              <textarea
+                value={formik.values.description}
+                onChange={formik.handleChange("description")}
+                onBlur={formik.handleBlur("description")}
+                placeholder="Description"
+                type="text"
+                className={`form-custom ${
+                  formik.errors.description && "is-invalid"
+                }`}
+              ></textarea>
+              {formik.touched.description && (
+                <div
+                  id="validationServer03Feedback"
+                  className="invalid-feedback"
+                >
+                  {formik.errors.description}
+                </div>
+              )}
+            </div>
+            <div className="form-group mb-3">
+              <label htmlFor="description">Image</label>
+              <div className="abc">
+                <StyleDropzone
+                  style={formik.errors.image && { border: "1px solid red" }}
+                  {...getRootProps({ className: "dropzone" })}
+                >
+                  <input {...getInputProps()} />
+
+                  <p style={pj}>
+                    Drag & drop some files here, or click to select files
+                  </p>
+                </StyleDropzone>
+                {formik.touched.image && (
+                  <div id="validationServer03Feedback" className="text-danger">
+                    {formik.errors.image}
+                  </div>
                 )}
+
+                <aside style={thumbsContainer}>{thumbs}</aside>
               </div>
-            </form>
-          </div>
+            </div>
+            <div className="form-group mt-3">
+              {loading ? (
+                <button disabled className="btn btn-primary">
+                  <LoadingComponent />
+                </button>
+              ) : (
+                <button type="submit" className="btn btn-primary">
+                  Save
+                </button>
+              )}
+            </div>
+          </form>
         </div>
       </div>
     </Fragment>

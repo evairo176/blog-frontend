@@ -34,6 +34,16 @@ function CategoryWithNoError(props) {
               cursor: "pointer",
             }),
           }}
+          theme={(theme) => ({
+            ...theme,
+            colors: {
+              ...theme.colors,
+              text: "blue",
+              primary25: "pink",
+              primary: "black",
+              neutral80: "var(--font)",
+            },
+          })}
         />
       )}
     </div>

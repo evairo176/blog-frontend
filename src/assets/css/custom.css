@@ -48,6 +48,12 @@ body {
   --prim: rgb(43 50 69);
   --active-nav: #6d3a9c;
 }
+.card-form {
+  background: var(--secunder);
+  padding: 20px;
+  border-radius: 12px;
+}
+
 .btn:focus {
   box-shadow: none !important;
 }
