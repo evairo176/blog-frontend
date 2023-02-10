@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUserAction } from "../../redux/slices/users/usersSlices";
 import LoadingComponent from "../../utils/LoadingComponent";
 import imgRegister from "../../assets/images/image-register.svg";
-import "../../assets/css/login.css";
+
 const formSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
