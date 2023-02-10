@@ -2,10 +2,9 @@ import React, { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchAllCategoryAction } from "../../redux/slices/category/categorySlices";
-import DateFormatter from "../../utils/DateFormatter";
 import LoadingComponent from "../../utils/LoadingComponent";
 import Navbar from "../cummon/Navbar";
-
+import DateFormatter from "../../utils/DateFormatter";
 function CategoryListMenu() {
   const dispatch = useDispatch();
   useEffect(() => {
