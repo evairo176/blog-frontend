@@ -24,6 +24,10 @@ function Public() {
       id: "hallowen-theme",
       title: "Hallowen",
     },
+    {
+      id: "night-theme",
+      title: "Night",
+    },
   ];
 
   return (

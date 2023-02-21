@@ -48,6 +48,15 @@ body {
   --prim: rgb(43 50 69);
   --active-nav: #6d3a9c;
 }
+.night-theme {
+  --primary: #0e1525;
+  --secunder: #0f1729;
+  --font: #b3c5ef;
+  --font-banner: #b3c5ef;
+  --pfont: #c6c6c6;
+  --prim: #a9c5ef9c;
+  --active-nav: #828deb;
+}
 .card-form {
   background: var(--secunder);
   padding: 20px;

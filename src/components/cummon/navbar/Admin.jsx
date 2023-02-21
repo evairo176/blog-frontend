@@ -36,6 +36,10 @@ function Admin({ isLogin }) {
       id: "hallowen-theme",
       title: "Hallowen",
     },
+    {
+      id: "night-theme",
+      title: "Night",
+    },
   ];
 
   return (
