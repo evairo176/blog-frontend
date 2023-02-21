@@ -58,6 +58,8 @@ body {
   --active-nav: #828deb;
 }
 .card-form {
+  width: 480px;
+  margin: auto;
   background: var(--secunder);
   padding: 20px;
   border-radius: 12px;
@@ -82,4 +84,12 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 0 150px;
+}
+.container-content-form {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
 }

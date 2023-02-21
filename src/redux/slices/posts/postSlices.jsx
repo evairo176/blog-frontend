@@ -166,6 +166,31 @@ export const fetchPostById = createAsyncThunk(
 );
 
 // ================================================================
+// fetch Post By Id Update
+// ================================================================
+
+export const fetchPostByIdUpdate = createAsyncThunk(
+  "posts/post-update-by-id",
+  async (values, { rejectWithValue, getState, dispatch }) => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/posts/user/${values}`,
+        {
+          postId: values,
+        }
+      );
+
+      return data;
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
+
+// ================================================================
 // slices
 // ================================================================
 
@@ -279,6 +304,26 @@ const postSlices = createSlice({
       // console.log(action.payload.message);
     });
     builder.addCase(fetchPostById.rejected, (state, action) => {
+      state.loading = false;
+      state.appErr = action.payload.message;
+      state.serverErr = action.error.message;
+    });
+
+    // fetch Post By Id Update
+    builder.addCase(fetchPostByIdUpdate.pending, (state, action) => {
+      state.loading = true;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(fetchPostByIdUpdate.fulfilled, (state, action) => {
+      state.loading = false;
+      state.postDetailUpdate = action.payload;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+      // toast.success(`${action.payload.message}`);
+      // console.log(action.payload.message);
+    });
+    builder.addCase(fetchPostByIdUpdate.rejected, (state, action) => {
       state.loading = false;
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
