@@ -12,11 +12,11 @@ function Admin({ isLogin }) {
   const { pathname } = useLocation();
   const navigation_left = [
     { name: "Home", path: "/", current: true },
-    { name: "Create", path: "/create-post", current: false },
+    // { name: "Create", path: "/create-post", current: false },
     { name: "Posts", path: "/posts", current: false },
-    { name: "Authors", path: "/users", current: false },
-    { name: "Add Category", path: "/add-category", current: false },
-    { name: "Category List", path: "/category-list", current: false },
+    // { name: "Authors", path: "/users", current: false },
+    // { name: "Add Category", path: "/add-category", current: false },
+    // { name: "Category List", path: "/category-list", current: false },
   ];
   const navigation_right = [
     { name: "Your Profile", path: "/profile" },
@@ -108,54 +108,70 @@ function Admin({ isLogin }) {
                   : ""}
               </li>
               <li>
-                <NavDropdown
-                  className="costum-profile-menu"
-                  title={
-                    <img
-                      src="https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png"
-                      className="rounded-circle"
-                      style={{ width: "35px" }}
-                      alt=""
-                    />
-                  }
-                  id="collasible-nav-dropdown"
-                >
-                  {navigation_right?.length > 0
-                    ? navigation_right?.map((row, key) => {
-                        return (
-                          <Link
-                            key={key}
-                            className={`dropdown-item`}
-                            to={`${row.path}`}
-                          >
-                            {row.name}
-                          </Link>
-                        );
-                      })
-                    : ""}
-                  <div
-                    style={{ fontSize: "13px" }}
-                    onClick={() => dispatch(logoutUserAction())}
-                    className="dropdown-item"
-                  >
-                    Logout
-                  </div>
-                </NavDropdown>
+                <hr />
+                <div className="themes-option hide-laptop">
+                  <ThemeContext.Consumer>
+                    {({ changeTheme, theme }) => (
+                      <CategoryWithNoError
+                        onChange={(e) => changeTheme(e)}
+                        value={theme}
+                        id="themes"
+                        data={dataThemes}
+                        placeholder="Themes"
+                      />
+                    )}
+                  </ThemeContext.Consumer>
+                </div>
               </li>
             </ul>
           </nav>
-          <div className="themes-option">
-            <ThemeContext.Consumer>
-              {({ changeTheme, theme }) => (
-                <CategoryWithNoError
-                  onChange={(e) => changeTheme(e)}
-                  value={theme}
-                  id="themes"
-                  data={dataThemes}
-                  placeholder="Themes"
+          <div className="d-flex align-items-center">
+            <div className="themes-option hide-mobile">
+              <ThemeContext.Consumer>
+                {({ changeTheme, theme }) => (
+                  <CategoryWithNoError
+                    onChange={(e) => changeTheme(e)}
+                    value={theme}
+                    id="themes"
+                    data={dataThemes}
+                    placeholder="Themes"
+                  />
+                )}
+              </ThemeContext.Consumer>
+            </div>
+            <NavDropdown
+              className="costum-profile-menu hide-mobile"
+              title={
+                <img
+                  src="https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png"
+                  className="rounded-circle"
+                  style={{ width: "35px", marginLeft: "10px" }}
+                  alt=""
                 />
-              )}
-            </ThemeContext.Consumer>
+              }
+              id="collasible-nav-dropdown"
+            >
+              {navigation_right?.length > 0
+                ? navigation_right?.map((row, key) => {
+                    return (
+                      <Link
+                        key={key}
+                        className={`dropdown-item`}
+                        to={`${row.path}`}
+                      >
+                        {row.name}
+                      </Link>
+                    );
+                  })
+                : ""}
+              <div
+                style={{ fontSize: "13px" }}
+                onClick={() => dispatch(logoutUserAction())}
+                className="dropdown-item"
+              >
+                Logout
+              </div>
+            </NavDropdown>
           </div>
           <label htmlFor="nav_check" className="hambur">
             <div></div>
