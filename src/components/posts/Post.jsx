@@ -12,6 +12,7 @@ import SortComponent from "../../utils/SortComponent";
 import Navbar from "../cummon/Navbar";
 import PaginationCustom from "../../utils/PaginationCustom";
 import BannerBlog from "../../utils/BannerBlog";
+import { useNavigate } from "react-router-dom";
 
 function Post() {
   // const [postList, setpostList] = useState({});
@@ -25,6 +26,7 @@ function Post() {
   const storeData = useSelector((store) => store?.posts);
   const storeDataUser = useSelector((store) => store?.users);
   const { loading, postList, likes, dislikes } = storeData;
+  const navigate = useNavigate();
 
   const { userAuth } = storeDataUser;
   useEffect(() => {
@@ -64,6 +66,18 @@ function Post() {
                   />
                 </div>
               </div>
+              {userAuth ? (
+                <div className="box-content-blob-category">
+                  <button
+                    className="btn-custom"
+                    onClick={() => navigate("/create-post")}
+                  >
+                    Create Post
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-xs-12">
               <div className="box-post-list">
