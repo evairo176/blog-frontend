@@ -28,7 +28,7 @@
 }
 .btn-custom {
   background: var(--prim);
-  color: var(--font);
+  color: var(--font-banner);
   width: 100%;
   font-size: 18px;
   font-weight: 600;

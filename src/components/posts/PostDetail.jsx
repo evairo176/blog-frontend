@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../cummon/Navbar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPostById } from "../../redux/slices/posts/postSlices";
@@ -10,9 +10,12 @@ import { Skeleton } from "@mui/material";
 function PostDetail() {
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const storeData = useSelector((store) => store?.posts);
+  const storeUser = useSelector((store) => store?.users);
   const { postDetail, loading } = storeData;
+  const { userAuth } = storeUser;
 
   useEffect(() => {
     dispatch(fetchPostById(params?.id));
@@ -79,6 +82,18 @@ function PostDetail() {
         </div>
       ) : (
         <div className="container-content-blog">
+          {userAuth ? (
+            <div className="edit-post-btn">
+              <button
+                onClick={() => navigate(`/update-post/${postDetail?.id}`)}
+                className="btn-edit"
+              >
+                Edit Post
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
           <section className="section-posts-detail">
             <div className="profile-user-post">
               <div className="date">

@@ -49,3 +49,21 @@
   color: var(--font);
   padding: 20px;
 }
+.edit-post-btn {
+  position: fixed;
+  bottom: 15px;
+  left: 30px;
+}
+.btn-edit {
+  display: flex;
+  background: var(--prim);
+  color: var(--font-banner);
+  border: 1px solid var(--prim);
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-edit:hover {
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+}

@@ -15,6 +15,7 @@ import Post from "../components/posts/Post";
 import PostDetail from "../components/posts/PostDetail";
 import SpeedDialComponent from "../.././src/utils/SpeedDialComponent";
 import { useSelector } from "react-redux";
+import UpdatePost from "../components/posts/UpdatePost";
 
 function AppRoutes() {
   const storeData = useSelector((store) => store?.users);
@@ -47,6 +48,14 @@ function AppRoutes() {
             element={
               <ProtectedAdminRoute>
                 <CreatePostMenu />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path="/update-post/:id"
+            element={
+              <ProtectedAdminRoute>
+                <UpdatePost />
               </ProtectedAdminRoute>
             }
           />

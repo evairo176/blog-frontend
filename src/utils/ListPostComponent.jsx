@@ -239,7 +239,8 @@ function ListPostComponent({
                       <LongText content={row.description} limit={300} />
                     </div>
                     <div className="time-detail-dwd">
-                      {moment(row.createdAt).fromNow()} · 24 min read ·{" "}
+                      {moment(row.createdAt).fromNow()} ·{" "}
+                      {moment(row.viewAt).fromNow()} read ·{" "}
                       <span className="category-dad">{row.category}</span>
                     </div>
                   </div>
@@ -283,7 +284,7 @@ function ListPostComponent({
                       <VisibilityIcon />
                       <span className="sum-action-dwad">
                         {" "}
-                        {row.numViews.length > 0 ? row.numViews.length : 0}
+                        {row.numViews > 0 ? row.numViews : 0}
                       </span>
                     </div>
                   </div>
