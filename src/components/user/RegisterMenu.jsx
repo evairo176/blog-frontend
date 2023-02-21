@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { registerUserAction } from "../../redux/slices/users/usersSlices";
 import LoadingComponent from "../../utils/LoadingComponent";
 import imgRegister from "../../assets/images/image-register.svg";
+import Navbar from "../cummon/Navbar";
 
 const formSchema = Yup.object({
   firstName: Yup.string().required("First Name is required"),
@@ -42,6 +43,7 @@ function RegisterMenu() {
 
   return (
     <Fragment>
+      <Navbar />
       <div className="bg-hasj">
         <div className="container-cssdw">
           <div className="row">

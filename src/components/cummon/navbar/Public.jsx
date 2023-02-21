@@ -7,7 +7,7 @@ import { ThemeContext } from "../../../utils/ThemeSelector";
 function Public() {
   const { pathname } = useLocation();
   const navigation_left = [
-    { name: "Create", path: "/create-post", current: false },
+    { name: "Home", path: "/", current: false },
     { name: "Posts", path: "/posts", current: false },
   ];
 
@@ -70,9 +70,25 @@ function Public() {
                   Register
                 </Link>
               </li>
+              <li>
+                <hr />
+                <div className="themes-option hide-laptop">
+                  <ThemeContext.Consumer>
+                    {({ changeTheme, theme }) => (
+                      <CategoryWithNoError
+                        onChange={(e) => changeTheme(e)}
+                        value={theme}
+                        id="themes"
+                        data={dataThemes}
+                        placeholder="Themes"
+                      />
+                    )}
+                  </ThemeContext.Consumer>
+                </div>
+              </li>
             </ul>
           </nav>
-          <div className="themes-option">
+          <div className="themes-option hide-mobile">
             <ThemeContext.Consumer>
               {({ changeTheme, theme }) => (
                 <CategoryWithNoError
