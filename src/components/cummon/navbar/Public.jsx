@@ -9,6 +9,8 @@ function Public() {
   const navigation_left = [
     { name: "Home", path: "/", current: false },
     { name: "Posts", path: "/posts", current: false },
+    { name: "Login", path: "/login", current: false },
+    { name: "Register", path: "/register", current: false },
   ];
 
   const dataThemes = [
@@ -59,16 +61,6 @@ function Public() {
                       );
                     })
                   : ""}
-              </li>
-              <li>
-                <Link className="nav-link-custom" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link className="nav-link-custom" to="/register">
-                  Register
-                </Link>
               </li>
               <li>
                 <hr />

@@ -13,11 +13,16 @@ import ProfileMenu from "../components/user/ProfileMenu";
 import RegisterMenu from "../components/user/RegisterMenu";
 import Post from "../components/posts/Post";
 import PostDetail from "../components/posts/PostDetail";
+import SpeedDialComponent from "../.././src/utils/SpeedDialComponent";
+import { useSelector } from "react-redux";
 
 function AppRoutes() {
+  const storeData = useSelector((store) => store?.users);
+  const { userAuth } = storeData;
   return (
     <Fragment>
       <ToastContainer />
+      <SpeedDialComponent userAuth={userAuth} />
       <Routes>
         <>
           <Route path="/" element={<HomeMenu />} />

@@ -11,7 +11,6 @@ import Search from "../../utils/Search";
 import SortComponent from "../../utils/SortComponent";
 import Navbar from "../cummon/Navbar";
 import PaginationCustom from "../../utils/PaginationCustom";
-import SpeedDialComponent from "../../utils/SpeedDialComponent";
 import BannerBlog from "../../utils/BannerBlog";
 
 function Post() {
@@ -102,8 +101,6 @@ function Post() {
           </div>
         </section>
       </div>
-
-      <SpeedDialComponent />
     </Fragment>
   );
 }
