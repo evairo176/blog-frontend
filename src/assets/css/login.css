@@ -78,17 +78,17 @@
   text-align: center;
 }
 .form-custom {
-  background: transparent;
+  background: var(--font-banner);
   color: var(--font);
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  border: 1px solid var(--pfont);
+  border: 1px transparent;
   border-radius: 10px;
   padding: 10px 15px;
-  font-size: 18px;
+  font-size: 15px;
 }
 .form-control:focus {
   color: var(--pfont) !important;

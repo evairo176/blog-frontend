@@ -58,8 +58,8 @@
   display: flex;
   background: var(--prim);
   color: var(--font-banner);
-  border: 1px solid var(--prim);
-  padding: 10px 20px;
+  border: 1px transparent;
+  padding: 7px 20px;
   transition: all 0.3s ease-in-out;
 }
 

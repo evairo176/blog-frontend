@@ -29,7 +29,11 @@ function CategoryDropdown(props) {
           onBlur={handleBlur}
           id={props?.id}
           options={allCategory}
-          value={props?.value?.label}
+          value={
+            allCategory &&
+            allCategory.filter((option) => option.label === props.defaultValue)
+          }
+          // value={props?.value?.label}
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,

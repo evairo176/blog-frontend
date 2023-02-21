@@ -114,7 +114,7 @@ function CreatePostMenu() {
         )
       );
     },
-    multiple: true,
+    multiple: false,
     onBlur: () => {
       formik.handleBlur("image");
     },
@@ -148,7 +148,7 @@ function CreatePostMenu() {
   return (
     <Fragment>
       <Navbar />
-      <div className="container-content-form">
+      <div className="container-content-blog">
         <div className="card-form">
           <form onSubmit={formik.handleSubmit} action="">
             <div className="form-group mb-3">
