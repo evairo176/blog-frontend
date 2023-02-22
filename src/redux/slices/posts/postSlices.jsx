@@ -34,6 +34,7 @@ export const createPostAction = createAsyncThunk(
         config
       );
       dispatch(resetCreateAction());
+      console.log(data);
       return data;
     } catch (error) {
       if (!error?.response) {
