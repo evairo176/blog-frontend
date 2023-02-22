@@ -30,8 +30,12 @@ function CategoryDropdown(props) {
           id={props?.id}
           options={allCategory}
           value={
-            allCategory &&
-            allCategory.filter((option) => option.label === props.defaultValue)
+            props.defaultValue
+              ? allCategory &&
+                allCategory.filter(
+                  (option) => option.label === props.defaultValue
+                )
+              : props?.value?.label
           }
           // value={props?.value?.label}
           styles={{
