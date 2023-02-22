@@ -218,6 +218,7 @@ const postSlices = createSlice({
     });
     builder.addCase(createPostAction.rejected, (state, action) => {
       state.loading = false;
+      console.log(action.payload);
       state.appErr = action.payload.message;
       state.serverErr = action.error.message;
       toast.error(`${action.error.message} ${action.payload.message}`);
