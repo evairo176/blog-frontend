@@ -13,24 +13,20 @@ const resetCreateAction = createAction("post/reset-create");
 
 export const createPostAction = createAsyncThunk(
   "post/create",
-  async (value, { rejectWithValue, getState, dispatch }) => {
+  async (values, { rejectWithValue, getState, dispatch }) => {
     const user = getState()?.users;
     const { userAuth } = user;
     const token = userAuth?.token;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
       },
     };
     try {
-      const formData = new FormData();
-      formData.append("title", value?.title);
-      formData.append("description", value?.description);
-      formData.append("category", value?.category);
-      formData.append("image", value?.image);
       const { data } = await axios.post(
         `${process.env.REACT_APP_API_URL}/posts`,
-        formData,
+        values,
         config
       );
       dispatch(resetCreateAction());
