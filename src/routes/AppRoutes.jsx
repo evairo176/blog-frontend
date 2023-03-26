@@ -46,17 +46,17 @@ function AppRoutes() {
           <Route
             path="/create-post"
             element={
-              <ProtectedAdminRoute>
+              <ProtectedRoute>
                 <CreatePostMenu />
-              </ProtectedAdminRoute>
+              </ProtectedRoute>
             }
           />
           <Route
             path="/update-post/:id"
             element={
-              <ProtectedAdminRoute>
+              <ProtectedRoute>
                 <UpdatePost />
-              </ProtectedAdminRoute>
+              </ProtectedRoute>
             }
           />
           <Route
